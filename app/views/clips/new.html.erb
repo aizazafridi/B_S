@@ -1,0 +1,50 @@
+
+<%= form_for(@clip, :html => {:multipart => true}) do |f| %>
+
+<table summry = "Clip form fields">
+
+  <tr>
+    <th>Clip Name</th>
+    <td> <%= f.text_field(:clip_name) %>  </td>
+  </tr>
+  <tr>
+    <th>Description</th>
+    <td> <%= f.text_area(:clip_description) %> </td>
+  </tr>
+  <tr>
+    <th>Image Location</th>
+    <td> <%= f.file_field :image_url %> </td>
+  </tr>
+  <tr>
+    <th>Clip Location</th>
+    <td> <%= f.file_field :clip_src %> </td>
+  </tr>
+  <tr>
+    <th>Movie</th>
+    <td><%= f.text_field(:movie) %> </td>
+  </tr>
+  <tr>
+    <th>Release Date</th>
+    <td><%= f.date_field(:release_date) %> </td>
+  </tr>
+  <tr>
+    <th>Tag1</th>
+    <td><%= f.text_field(:clip_tag1) %> </td>
+  </tr>
+  <tr>
+    <th>Tag2</th>
+    <td><%= f.text_field(:clip_tag2) %></td>
+  </tr>
+  <tr>
+    <th>Tag3</th>
+    <td><%= f.text_field(:clip_tag3) %></td>
+  </tr>
+  <tr>
+    <th>Actress<th>
+    <td> <%= f.collection_select(:actress_id, Actress.all, :id, :first_name) %></td>
+  </tr>
+
+</table>
+
+<%= f.submit("Add Clip") %>
+<%end %>

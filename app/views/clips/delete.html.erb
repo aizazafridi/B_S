@@ -1,0 +1,13 @@
+
+<%= form_for(@clip, :method => 'delete') do |f| %>
+
+<p>
+Are you sure you want to delete this clip? 
+<%= f.object.clip_name %>
+</p>
+</br>
+
+<%= f.submit("Delete clip") %>
+<%= link_to("Back", clips_path) %>
+
+<%end %>

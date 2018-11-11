@@ -1,0 +1,62 @@
+
+<html>
+  <head>
+    <title> Bollywood Skin Admin: <%= @page_title || "Admin Area" %> </title>
+    <%= stylesheet_link_tag('application', :media => 'all') %>
+    <%= javascript_include_tag('application') %>
+
+<style>
+video {
+  max-width: 100%;
+  max-height: auto;
+}
+</style>
+
+  <head>
+  <body>
+
+    <!-- Nvigtion Menu -->
+
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Bollywood Skin</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Home</a></li>
+          <li> <%= link_to("Actress Home", actresses_path) %> </li>
+          <li> <%= link_to("Clips Home", clips_path) %> </li>
+          <li> <%= link_to("Add New Actress",new_actress_path) %> </li>
+          <li> <%= link_to("Add Clip", new_clip_path) %> </li>
+        </ul>
+      </div>
+    </nav>
+
+
+    <!--</nav> -->
+
+    <!-- Content specific to each page goes here -->
+    <%= yield %>
+    <!-- content specific to each page ends here -->
+
+
+
+  </body>
+
+
+<!--
+<div class="container-fluid">
+
+  <nav class="navbar navbar-collapse">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Bollywood Skin </a>
+      </div>
+      <ul>
+        <li class="active"><a href="#">Home</a></li>
+        <li> <%= link_to("Actress Home", actresses_path) %> </li>
+        <li> <%= link_to("Clips Home", clips_path) %> </li>
+        <li> <%= link_to("Add New Actress",new_actress_path) %> </li>
+        <li> <%= link_to("Add Clip", new_clip_path) %> </li>
+      </ul>
+
+    -->

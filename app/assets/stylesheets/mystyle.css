@@ -1,0 +1,12 @@
+
+.roundedcorners {
+  border-radius: 25px;
+}
+
+.border {
+  border: 1px solid black;
+}
+
+.img {
+  border-radius: 25px;
+}

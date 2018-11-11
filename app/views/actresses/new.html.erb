@@ -1,0 +1,23 @@
+<h1>Adding new actress</h1>
+</br></br>
+
+<%= form_for(@actress, :html => {:multipart => true}) do |f| %>
+
+<table summary="Actress form fields">
+  <tr>
+    <th>First Name</th>
+    <td><%= f.text_field(:first_name) %></td>
+  </tr>
+  <tr>
+    <th>Last Name</th>
+    <td><%= f.text_field(:last_name) %></td>
+  </tr>
+  <tr>
+    <th> Image url</th>
+    <td><%= f.file_field :image_path %> </td>
+  </tr>
+
+</table>
+
+<%= f.submit("Add Actress") %>
+<%end %>

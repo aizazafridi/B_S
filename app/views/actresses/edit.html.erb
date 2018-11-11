@@ -1,0 +1,29 @@
+<h1>Editing an actress</h1>
+</br></br>
+
+<%= form_for(@actress) do |f| %>
+
+<table summary="Actress form fields">
+  <tr>
+    <th>First Name</th>
+    <td><%= f.text_field(:first_name) %></td>
+  </tr>
+  <tr>
+    <th>Last Name</th>
+    <td><%= f.text_field(:last_name) %></td>
+  </tr>
+  <tr>
+    <th> Image url</th>
+    <td><%= f.file_field :image_path %> </td>
+  </tr>
+  <tr>
+    <td> <%= f.submit("Update Actress") %> </td>
+  </tr>
+  <tr>
+    <td>  <%= link_to("Back", actresses_path) %> </td>
+  </tr>
+
+</table>
+
+
+<%end %>

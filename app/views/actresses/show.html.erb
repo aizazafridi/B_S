@@ -1,0 +1,55 @@
+
+<div class="container">
+
+  <div class="row">
+
+    <div class="col-md-4">
+      <%= image_tag(@actress.image_path, :class => "img-responsive rounded") %>
+    </div>
+
+<table class="table-striped table-bordered table-hover">
+  <tr>
+    <td class="col-md-4">First Name</th>
+    <td class="col-md-4"><%= @actress.first_name %> </td>
+  </tr>
+  <tr>
+    <td class="col-md-4">Last Name</th>
+    <td class="col-md-4"><%= @actress.last_name %> </td>
+  </tr>
+  <tr>
+    <td class="col-md-4">Clips</th>
+    <td class="col-md-4"><%= @clips.count %>
+  </tr>
+  <tr>
+    <td class="col-md-4">Created at</th>
+    <td class="col-md-4"><%= @actress.created_at %> </td>
+  </tr>
+  <tr>
+    <td class="col-md-4">Updated at</th>
+    <td class="col-md-4"><%= @actress.updated_at %> </td>
+  </tr>
+  <tr>
+    <td class="col-md-4">  <%= link_to("Edit", edit_actress_path(@actress)) %> </td>
+    <td class="col-md-4"></td>
+  </tr>
+  <tr>
+    <td class="col-md-4">  <%= link_to("Back", actresses_path) %> </td>
+    <td class="col-md-4"></td>
+  </tr>
+
+</table>
+</div>
+
+<br/><br/>
+  <table>
+    <% @clips.each do |clip| %>
+      <tr>
+        <!--<td><%= link_to("show clip", clip_path(clip)) %> </td> -->
+        <td class="col-md-4 col-lg-4">
+          <%= video_tag(clip.clip_src, controls: true, autobuffer: true) %>
+        </td>
+      </tr>
+  </table>
+    <% end %>
+
+</div>
