@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
   get 'demo/index'
+  
+  
 
   resources :actresses do
     member do

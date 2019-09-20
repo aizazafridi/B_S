@@ -68,6 +68,8 @@ gem 'will_paginate-bootstrap'
 
 gem 'kaminari'
 
+gem 'simple_form', '~> 3.5'
+
 group :development do
   gem "rails-erd"
 end

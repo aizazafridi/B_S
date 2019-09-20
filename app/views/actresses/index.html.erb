@@ -1,7 +1,13 @@
 
-<h1>List of all Actresses</h1>
+<!-- <h1>List of all Actresses</h1> -->
 
 <div class="container-fluid">
+
+<%= simple_form_for :search, url: actresses_path, method: "GET", html: { class: 'form-inline' } do |f| %>
+  <%= f.input :first_name, input_html: {value: ""} %>   
+  <%= f.submit "Search", class: "btn btn-primary" %>
+<% end %>
+    
 <table class="table-striped table-bordered table-hover">
   <tr class='row row-eq-height'>
     <th class="col-md-1">ID</th>
@@ -21,6 +27,8 @@
   </tr>
   <% end %>
 </table>
+
+<%= will_paginate @actress, renderer: BootstrapPagination::Rails %>
 </div>
 
-<%= will_paginate @actresses, renderer: BootstrapPagination::Rails %>
+

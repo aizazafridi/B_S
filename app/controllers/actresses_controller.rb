@@ -4,7 +4,14 @@ class ActressesController < ApplicationController
 
   def index
     ##@actresses = Actress.newest
+    @search = params["search"]
+    if @search.present?
+      @first_name = @search["first_name"]
+      ##@actresses = Actress.where(first_name: @first_name)
+      @actresses = Actress.paginate(:page => params[:page], :per_page => 20).order(:first_name).where(first_name: @first_name)
+    else
     @actresses = Actress.paginate(:page => params[:page], :per_page => 20).order(:first_name)
+    end
   end
 
   def show
@@ -60,6 +67,9 @@ class ActressesController < ApplicationController
     @actress.destroy
     #Redirect to index page
     redirect_to(actresses_path)
+  end
+  
+  def result
   end
 
   private
