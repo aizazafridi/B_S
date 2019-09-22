@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181121191036) do
+ActiveRecord::Schema.define(version: 20190921222828) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "namespace"
@@ -70,6 +70,14 @@ ActiveRecord::Schema.define(version: 20181121191036) do
     t.integer "image_url_file_size"
     t.datetime "image_url_updated_at"
     t.index ["actress_id"], name: "index_clips_on_actress_id"
+  end
+
+  create_table "feature_actresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
+    t.bigint "actress_id"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["actress_id"], name: "index_feature_actresses_on_actress_id"
   end
 
 end
