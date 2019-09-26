@@ -1,31 +1,23 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Feature Actresses</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @feature_actresses.each do |feature_actress| %>
-      <tr>
-        <td><%= feature_actress.description %></td>
-        <td><%= link_to 'Show', feature_actress_path(feature_actress) %></td>
-        <td><%= link_to 'Edit', edit_feature_actress_path(feature_actress) %></td>
-        <td><%= link_to 'Destroy', feature_actress, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="container-fluid">
+    <h4> Feature Actresses</h4>
+    <table class="table-striped table-bordered table-hover">
+        <tr class="row row-eq-height">
+            <th>Date</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+        <% @feature_actresses.each do |feature_actress| %>
+        <tr class = "row row-eq-height">
+            <td><%= feature_actress.created_at %></td>
+            <td><%= link_to 'Show', feature_actress_path(feature_actress) %></td>
+            <td><%= link_to 'Edit', edit_feature_actress_path(feature_actress) %></td>
+            <td><%= link_to 'Destroy', feature_actress, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+        <%end %>
+    </table>
+    <%= link_to 'New Feature Actress', new_feature_actress_path %>
+</div>
 
 <%= will_paginate @features, render: BootstrapPagination::Rails %>
 
-
-
-<br>
-
-<%= link_to 'New Feature Actress', new_feature_actress_path %>

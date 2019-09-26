@@ -1,14 +1,19 @@
-
-<p>
-  <strong>Description:</strong>
-  <%= @feature_actress.description %>
-  <br />
-  <strong>Actress:</strong>
-  <%= @actress.first_name %> 
-  
-  <%= @actress.last_name %>
-  
-</p>
+<div class="container">
+    <h4>Feature</h4>
+    <div class="col-md-4">
+        <%= image_tag(@actress.image_path, style: 'height:200px; width:200px;') %>
+    </div>
+    <table class="table-bordered">
+        <tr>
+            <th>Name</th>
+            <td><%= @actress.first_name %></td>
+        </tr>
+        <tr>
+            <th>Description</th>
+            <td><%= @feature_actress.description %></td>
+        </tr>
+    </table>
+</div>
 
 <%= link_to 'Edit', edit_feature_actress_path(@feature_actress) %> |
 <%= link_to 'Back', feature_actresses_path %>

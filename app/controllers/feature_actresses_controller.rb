@@ -19,7 +19,7 @@ class FeatureActressesController < InheritedResources::Base
     def create
         @feature = FeatureActress.new(feature_actress_params)
         if @feature.save
-            redirect_to(actresses_path)
+            redirect_to(feature_actresses_path)
         else
             render('new')
         end
