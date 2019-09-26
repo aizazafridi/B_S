@@ -14,13 +14,17 @@
     <% @feature_actresses.each do |feature_actress| %>
       <tr>
         <td><%= feature_actress.description %></td>
-        <td><%= link_to 'Show', feature_actress %></td>
+        <td><%= link_to 'Show', feature_actress_path(feature_actress) %></td>
         <td><%= link_to 'Edit', edit_feature_actress_path(feature_actress) %></td>
         <td><%= link_to 'Destroy', feature_actress, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<%= will_paginate @features, render: BootstrapPagination::Rails %>
+
+
 
 <br>
 

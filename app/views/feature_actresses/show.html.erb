@@ -1,8 +1,13 @@
-<p id="notice"><%= notice %></p>
 
 <p>
   <strong>Description:</strong>
   <%= @feature_actress.description %>
+  <br />
+  <strong>Actress:</strong>
+  <%= @actress.first_name %> 
+  
+  <%= @actress.last_name %>
+  
 </p>
 
 <%= link_to 'Edit', edit_feature_actress_path(@feature_actress) %> |

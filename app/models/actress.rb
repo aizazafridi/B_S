@@ -1,6 +1,7 @@
 class Actress < ApplicationRecord
 
   has_many :clips
+  has_many :feature_actresses
   has_attached_file :image_path
 
   #scopes

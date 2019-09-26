@@ -1,5 +1,19 @@
 <h1>New Feature Actress</h1>
 
-<%= render 'form', feature_actress: @feature_actress %>
+<%= form_for(@feature, :html => {:multipart => true}) do |f| %>
 
-<%= link_to 'Back', feature_actresses_path %>
+<table summary = "Feature Form Fields">
+    <tr>
+        <th>Description</th>
+        <td> <%= f.text_area(:description) %> </td>
+    </tr>
+    <tr>
+        <th>Actress</th>
+        <td> <%= f.collection_select(:actress_id, Actress.all, :id, :first_name) %></td>
+    </tr>
+</table>
+
+<%= f.submit("Add Feature") %>
+<% end %>
+
+
