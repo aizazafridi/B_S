@@ -1,6 +1,8 @@
 class Clip < ApplicationRecord
 
   belongs_to :actress
+  has_many :feature_clips
+ 
   has_attached_file :image_url
   has_attached_file :clip_src
 

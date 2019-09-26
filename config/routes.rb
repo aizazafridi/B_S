@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :feature_clips
   resources :feature_actresses
   get 'demo/index'
   

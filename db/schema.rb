@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190924235731) do
+ActiveRecord::Schema.define(version: 20190926231729) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "namespace"
@@ -80,5 +80,14 @@ ActiveRecord::Schema.define(version: 20190924235731) do
     t.index ["actress_id"], name: "index_feature_actresses_on_actress_id"
   end
 
+  create_table "feature_clips", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "clip_id"
+    t.index ["clip_id"], name: "index_feature_clips_on_clip_id"
+  end
+
   add_foreign_key "feature_actresses", "actresses"
+  add_foreign_key "feature_clips", "clips"
 end
