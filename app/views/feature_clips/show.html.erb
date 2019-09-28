@@ -1,9 +1,19 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @feature_clip.description %>
-</p>
+<div class="container">
+    <h4>Feature</h4>
+    <div class="col-md-4">
+        
+    </div>
+    <table class="table-bordered">
+        <tr>
+            <th>Name</th>
+            <td><%= @clip.clip_name %></td>
+        </tr>
+        <tr>
+            <th>Description</th>
+            <td><%= @feature_clip.description %></td>
+        </tr>
+    </table>
+</div>
 
 <%= link_to 'Edit', edit_feature_clip_path(@feature_clip) %> |
-<%= link_to 'Back', feature_clips_path %>
+<%= link_to 'Back', feature_clip_path %>

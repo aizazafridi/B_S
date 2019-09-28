@@ -1,5 +1,22 @@
-<h1>New Feature Clip</h1>
+<div class="container-fluid">
 
-<%= render 'form', feature_clip: @feature_clip %>
+<h4>New Feature Clip</h4>
 
-<%= link_to 'Back', feature_clips_path %>
+<%= form_for(@feature, :html => {:multipart => true}) do |f| %>
+
+<table summary = "Feature Form Fields">
+    <tr>
+        <th>Description</th>
+        <td> <%= f.text_area(:description) %> </td>
+    </tr>
+    <tr>
+        <th>Clip</th>
+        <td> <%= f.collection_select(:clip_id, Clip.all, :id, :clip_name) %></td>
+    </tr>
+</table>
+
+<%= f.submit("Add Feature") %>
+<% end %>
+
+</div>
+
