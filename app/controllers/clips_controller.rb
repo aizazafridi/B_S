@@ -1,6 +1,7 @@
 require 'json'
 
 class ClipsController < ApplicationController
+  before_action :authenticate_user!
 
   layout "admin"
 

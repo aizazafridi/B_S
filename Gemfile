@@ -75,4 +75,4 @@ group :development do
 end
 
 gem 'devise', '>4.x'
-gem 'activeadmin', github: 'activeadmin'
+

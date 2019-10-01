@@ -1,4 +1,6 @@
-class FeatureActressesController < InheritedResources::Base
+class FeatureActressesController < ApplicationController
+    
+    before_action :authenticate_user!
     
     layout 'admin'
     

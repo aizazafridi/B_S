@@ -1,4 +1,6 @@
-class FeatureClipsController < InheritedResources::Base
+class FeatureClipsController < ApplicationController
+    
+    before_action :authenticate_user!
     
     layout 'admin'
     
