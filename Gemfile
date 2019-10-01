@@ -60,7 +60,7 @@ gem 'jquery-rails', '~> 4.2.2'
 gem 'bootstrap-sass', '3.3.6'
 gem 'sass-rails', '>=3.2'
 
-gem "paperclip", "~> 5.0.0"
+gem "paperclip", "~> 5.2.0"
 
 gem 'will_paginate'
 
@@ -68,7 +68,7 @@ gem 'will_paginate-bootstrap'
 
 gem 'kaminari'
 
-gem 'simple_form', '~> 3.5'
+gem 'simple_form', '~> 5.0.0'
 
 group :development do
   gem "rails-erd"
