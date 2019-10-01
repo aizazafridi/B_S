@@ -10,3 +10,39 @@
 .img {
   border-radius: 25px;
 }
+
+.flex-container {
+    display: flex;
+    background-color: blue;
+}
+
+.adds {
+    display: flex;
+    width: 10%;
+    flex-direction: column;
+    background-color: grey;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    margin-left: 10px;
+}
+
+.clip {
+    background-color: white;
+    border: 1px solid black;
+    height: 50px;
+    width: 100px;
+    margin: 10px;
+}
+
+.add {
+    background-color: green;
+    border: 1px solid black;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+

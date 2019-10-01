@@ -13,4 +13,7 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
 
+#Adding mystyle to asset pipeline
+Rails.application.config.assets.precompile += %w( mystyle.css )
+
 Rails.application.config.assets.paths << "#{Rails.root}/app/assets/videos"
