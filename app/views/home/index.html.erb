@@ -1,6 +1,6 @@
 <html>
     <body>
-        
+
         <div class="top_adds">
             <div class="add">Add1</div>
             <div class="add">Add2</div>
@@ -9,21 +9,21 @@
         </div>
         <div class="featured_actress_container">
             <div class="featured_actress_image">
-                Image here
+                <%= image_tag(@actress.image_path, style: 'height:300px; width:300px;') %>
             </div>
             <div class="featured_actress_description">
-                Description here
+                <%= @feature_actress.description %>
             </div>
         </div>
         <div class="featured_clip_container">
             <div class="featured_clip_image">
-                Image here
+                <%= image_tag(@clip.image_url, style: 'height:300px; width:300px;') %>
             </div>
             <div class="featured_clip_description">
-                Description here
+                <%= @feature_clip.description %>
             </div>
         </div>
-        
+
         <div class="flex-container">
             <div class="adds">
                 <div class="add">Add1</div>
@@ -54,6 +54,6 @@
                 <div class="add">Add4</div>
             </div>
         </div>
-        
+
     </body>
 </html>
