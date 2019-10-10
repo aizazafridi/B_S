@@ -1,12 +1,17 @@
 <html>
-    
+
     <head>
+        <div class="top_highlight">
+          <!-- top adds come here -->
+        </div>
         <title>Bollywood Skin Home</title>
         <%= stylesheet_link_tag('application', :media => 'all') %>
         <%= stylesheet_link_tag('mystyle', :media => 'all') %>
         <%= javascript_include_tag('application') %>
+        <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,800" rel="stylesheet">
     </head>
-    
+
     <body>
         <nav class="navbar navbar-default">
             <div class="container">
@@ -20,10 +25,11 @@
                 </ul>
             </div>
         </nav>
-        
+
+
         <!-- page content here -->
         <%= yield %>
 
     </body>
-    
+
 </html>

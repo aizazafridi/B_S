@@ -8,6 +8,8 @@ class HomeController < ApplicationController
     #Finding feature clip
     @feature_clip = FeatureClip.order('created_at').last
     @clip = Clip.find_by_id(@feature_clip.clip_id)
+
+    @latest_clips = Clip.last(10)
   end
 
   def browse_ac

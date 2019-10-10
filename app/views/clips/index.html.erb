@@ -6,7 +6,7 @@
   <tr class='row'>
     <th class="col-md-1">Actress ID</th>
     <th class="col-md-4"> Name</th>
-    <!--<th class="col-md-2"> Image</th> -->
+    <th class="col-md-2"> Image</th> 
     <th class="col-md-4"> Movie </th>
     <!--<th class="col-md-2"> Clip src </th> -->
   </tr>
@@ -14,7 +14,7 @@
   <tr class="row">
     <td class="col-md-1"> <%= clip.actress_id %> </td>
     <td class="col-md-2"> <%= clip.clip_name %> </td>
-    <!--<td class="col-md-2"> <%= image_tag(clip.image_url, :class => "img-responsive rounded") %> </td> -->
+    <td class="col-md-2"> <%= image_tag(clip.image_url, :class => "img-responsive rounded") %> </td>
     <td class="col-md-2"> <%= clip.movie %> </td>
     <!--<td class="col-md-2"> <%= video_tag(clip.clip_src, controls: true, autobuffer: true) %> </td> -->
     <td class="col-md-1"> <%= link_to("Show",clip_path(clip)) %> </td>

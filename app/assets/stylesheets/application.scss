@@ -1,2 +1,21 @@
    @import "bootstrap-sprockets";
    @import "bootstrap";
+
+body {
+  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #2e2e2e;
+  line-height: 1.42857;
+}
+
+h1 {
+  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+  font-weight: 800 !important;
+}
+
+.navbar-default {
+
+  border-color: rbg(46, 46, 46);
+  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+  font-size: 14px;
+}
