@@ -46,7 +46,7 @@
       <tr>
         <!--<td><%= link_to("show clip", clip_path(clip)) %> </td> -->
         <td class="col-md-4 col-lg-4">
-          <%= video_tag(clip.clip_src, controls: true, autobuffer: true) %>
+          <%= video_tag(clip.clip_src, controls: true, autobuffer: true, style: 'height:500px; width: 500px') %>
         </td>
       </tr>
   </table>

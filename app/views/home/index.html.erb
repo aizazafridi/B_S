@@ -6,6 +6,7 @@
 
         <div class="flex-container">
 
+            <!--
             <div class="adds">
                 <div class="add">Add1</div>
                 <div class="add">Add2</div>
@@ -15,39 +16,46 @@
                 <div class="add">Add6</div>
                 <div class="add">Add7</div>
                 <div class="add">Add8</div>
-            </div>
+            </div> -->
 
             <div class="content">
 
               <div class="feature_container">
                 <div class="feature_item">
-                  <%= image_tag(@actress.image_path, style: 'height:300px; width:300px;') %>
+                  <%= image_tag(@actress.image_path) %>
                 </div>
                 <div class="feature_item">
                   <%= @feature_actress.description %>
                 </div>
                 <div class="feature_item">
-                  <%= image_tag(@clip.image_url, style: 'height:300px; width:300px;') %>
+                  <%= image_tag(@clip.image_url) %>
                 </div>
                 <div class="feature_item">
                   <%= @feature_clip.description %>
                 </div>
               </div>
 
-                <% @latest_clips.each do |latest_clip| %>
-                  <div class="clips">
-                  <%= image_tag(latest_clip.image_url, style: 'height:200px; width: 200px') %>
-                  </div>
+                <% @latest_clips.each do |latest_clip|
+                   @temp_actress = Actress.find_by_id(latest_clip.actress_id)%>
+                    <div class="clips">
+                      <%= link_to image_tag(latest_clip.image_url), clip_path(latest_clip) %>
+                      <br/>
+                      Actress: <%= @temp_actress.first_name %>
+                      <br/>
+                      Movie: <%= latest_clip.movie %>
+                    </div>
                <% end %>
 
             </div>
 
-            <div class="adds">
+
+            <!-- <div class="adds">
                 <div class="add">Add1</div>
                 <div class="add">Add2</div>
                 <div class="add">Add3</div>
                 <div class="add">Add4</div>
-            </div>
+            </div> -->
+
         </div>
 
 </html>
