@@ -44,6 +44,8 @@
   flex-direction: row;
   flex-wrap: wrap;
   margin: 10px;
+  background-color: grey;
+  border-radius: 10px;
 }
 
 .feature_container img {
@@ -51,7 +53,7 @@
   flex-shrink:0;
   width: 250px;
   height: 250px;
-  border-radius: 10px;
+  margin: 5px;
 }
 
 .feature_item {
@@ -60,16 +62,19 @@
 }
 
 .clips {
+  background-color: grey;
+  flex: 1 1 0px;
   margin: 20px;
+  border-radius: 10px;
 
 }
 
 .clips img{
+    margin: 5px;
     flex-grow:0;
     flex-shrink:0;
     width: 200px;
     height: 200px;
-    border-radius: 10px;
 
 }
 
