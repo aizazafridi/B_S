@@ -19,6 +19,7 @@ class HomeController < ApplicationController
   end
 
   def clip
+      @clip = Clip.find(params[:id])
   end
 
   def actress

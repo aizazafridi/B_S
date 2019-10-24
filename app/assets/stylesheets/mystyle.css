@@ -69,13 +69,24 @@
 
 }
 
+.vdo {
+    margin: 20px;
+    border-radius: 10px;
+    background-color: grey;
+}
+
+.vdo video {
+    margin: 5px;
+    width: 200px;
+    height: 200px;
+}
+
 .clips img{
     margin: 5px;
     flex-grow:0;
     flex-shrink:0;
     width: 200px;
     height: 200px;
-
 }
 
 .adds {

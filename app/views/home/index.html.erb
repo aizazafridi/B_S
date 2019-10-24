@@ -1,61 +1,27 @@
 <html>
 
-
-
-
-
-        <div class="flex-container">
-
-            <!--
-            <div class="adds">
-                <div class="add">Add1</div>
-                <div class="add">Add2</div>
-                <div class="add">Add3</div>
-                <div class="add">Add4</div>
-                <div class="add">Add5</div>
-                <div class="add">Add6</div>
-                <div class="add">Add7</div>
-                <div class="add">Add8</div>
-            </div> -->
-
-            <div class="content">
-
-              <div class="feature_container">
-                <div class="feature_item">
-                  <%= link_to image_tag(@actress.image_path) , actress_path(@actress)%>
-                </div>
-                <div class="feature_item">
-                  <%= @feature_actress.description %>
-                </div>
-                <div class="feature_item">
-                  <%= link_to image_tag(@clip.image_url), clip_path(@clip) %>
-                </div>
-                <div class="feature_item">
-                  <%= @feature_clip.description %>
-                </div>
-              </div>
-
-                <% @latest_clips.each do |latest_clip|
-                   @temp_actress = Actress.find_by_id(latest_clip.actress_id)%>
-                    <div class="clips">
-                      <%= link_to image_tag(latest_clip.image_url), clip_path(latest_clip) %>
-                      <br/>
-                      Actress: <%= @temp_actress.first_name %>
-                      <br/>
-                      Movie: <%= latest_clip.movie %>
-                    </div>
-               <% end %>
-
-            </div>
-
-
-            <!-- <div class="adds">
-                <div class="add">Add1</div>
-                <div class="add">Add2</div>
-                <div class="add">Add3</div>
-                <div class="add">Add4</div>
-            </div> -->
-
+    <div class="feature_container">
+        <div class="feature_item">
+            <%= link_to image_tag(@actress.image_path) , actress_path(@actress)%>
         </div>
+        <div class="feature_item">
+            <%= @feature_actress.description %>
+        </div>
+        <div class="feature_item">
+            <%= link_to image_tag(@clip.image_url), clip_path(@clip) %>
+        </div>
+        <div class="feature_item">
+            <%= @feature_clip.description %>
+        </div>
+    </div>
+
+    <% @latest_clips.each do |latest_clip|
+            @temp_actress = Actress.find_by_id(latest_clip.actress_id)%>
+            <div class="clips">
+                <%= link_to image_tag(latest_clip.image_url), clip_path(latest_clip) %> <br/>
+                Actress: <%= @temp_actress.first_name %> <br/>
+                Movie: <%= latest_clip.movie %>
+            </div>
+    <%end %>
 
 </html>

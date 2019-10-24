@@ -25,11 +25,19 @@
                 </ul>
             </div>
         </nav>
-
-
-        <!-- page content here -->
-        <%= yield %>
-
+        
+        <div class="flex-container">
+            <div class="adds">
+                <!-- Adds Here -->
+            </div>
+            <div class="content">
+                <%= yield %>
+            </div>
+            <div class="adds">
+                <!-- Adds Here -->
+            </div>
+        </div>
+        
     </body>
 
 </html>
