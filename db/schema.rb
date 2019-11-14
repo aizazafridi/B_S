@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191001212844) do
+ActiveRecord::Schema.define(version: 20191114231621) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "namespace"
@@ -61,14 +61,11 @@ ActiveRecord::Schema.define(version: 20191001212844) do
     t.string "clip_tag3"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "clip_src_file_name"
-    t.string "clip_src_content_type"
-    t.integer "clip_src_file_size"
-    t.datetime "clip_src_updated_at"
     t.string "image_url_file_name"
     t.string "image_url_content_type"
     t.integer "image_url_file_size"
     t.datetime "image_url_updated_at"
+    t.string "clip_src"
     t.index ["actress_id"], name: "index_clips_on_actress_id"
   end
 

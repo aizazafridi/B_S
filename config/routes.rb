@@ -7,7 +7,8 @@ Rails.application.routes.draw do
 
   get 'home/browse_cl'
 
-  get 'home/clip'
+  #get 'home/clip'
+  get '/home/clip/:id', to: 'home#clip'
 
   get 'home/actress'
 
