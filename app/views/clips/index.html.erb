@@ -16,7 +16,7 @@
     <td class="col-md-2"> <%= clip.clip_name %> </td>
     <td class="col-md-2"> <%= image_tag(clip.image_url, :class => "img-responsive rounded") %> </td>
     <td class="col-md-2"> <%= clip.movie %> </td>
-    <!--<td class="col-md-2"> <%= video_tag(clip.clip_src, controls: true, autobuffer: true) %> </td> -->
+    <!--<td class="col-md-2">video_tag(clip.clip_src, controls: true, autobuffer: true) %> </td> -->
     <td class="col-md-1"> <%= link_to("Show",clip_path(clip)) %> </td>
     <td class="col-md-1"> <%= link_to("Edit", edit_clip_path(clip)) %> </td>
     <td class="col-md-1"> <%= link_to("Delete", delete_clip_path(clip)) %> </td>
