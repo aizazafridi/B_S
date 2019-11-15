@@ -13,6 +13,8 @@ class HomeController < ApplicationController
   end
 
   def browse_ac
+     @actresses = Actress.paginate(:page => params[:page], :per_page => 20).order(:first_name)
+     #@actresses = Actress.last(20)
   end
 
   def browse_cl
@@ -23,5 +25,6 @@ class HomeController < ApplicationController
   end
 
   def actress
+      @actress = Actress.find(params[:id])
   end
 end

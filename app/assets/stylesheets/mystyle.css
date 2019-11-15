@@ -66,7 +66,29 @@
   flex: 1 1 0px;
   margin: 20px;
   border-radius: 10px;
+}
 
+.clips img {
+    margin: 5px;
+    flex-grow:0;
+    flex-shrink:0;
+    width: 200px;
+    height: 200px;
+}
+
+.actress {
+    background-color: grey;
+    flex: 1 1 0px;
+    margin: 20px;
+    border-radius: 10px;
+}
+
+.actress img {
+    margin: 5px;
+    flex-grow:0;
+    flex-shrink:0;
+    width: 200px;
+    height: 200px;
 }
 
 .vdo {
@@ -81,13 +103,6 @@
     height: 200px;
 }
 
-.clips img{
-    margin: 5px;
-    flex-grow:0;
-    flex-shrink:0;
-    width: 200px;
-    height: 200px;
-}
 
 .adds {
     display: flex;

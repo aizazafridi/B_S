@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   #get 'home/clip'
   get '/home/clip/:id', to: 'home#clip'
 
-  get 'home/actress'
+  #get 'home/actress'
+  get '/home/actress/:id', to: 'home#actress'
 
   resources :feature_clips
   resources :feature_actresses
