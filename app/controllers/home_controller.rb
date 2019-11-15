@@ -18,6 +18,7 @@ class HomeController < ApplicationController
   end
 
   def browse_cl
+     @clips = Clip.paginate(:page => params[:page], :per_page => 20).order(:created_at)
   end
 
   def clip

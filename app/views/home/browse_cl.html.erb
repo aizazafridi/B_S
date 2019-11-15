@@ -1,2 +1,15 @@
-<h1>Home#browse_cl</h1>
-<p>Find me in app/views/home/browse_cl.html.erb</p>
+<html>
+    <% @clips.each do |clip| %>
+        <div class="actress">
+            <%= link_to image_tag(clip.image_url), {:controller => "home", :action => "clip", :id => clip.id } %>
+            <%= clip.clip_name %>
+            <%= clip.created_at %>
+        </div>
+    <%end %>
+    
+    <%= will_paginate @clips %>
+    
+
+    
+</html>
+
