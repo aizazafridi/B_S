@@ -41,6 +41,7 @@
 
 .feature_container {
   display: flex;
+  width: 100%;
   flex-direction: row;
   flex-wrap: wrap;
   margin: 10px;
@@ -123,3 +124,22 @@
   height: 100px;
   display: block;
 }
+
+.display_clip {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 10px;
+  background-color: grey;
+  border-radius: 10px;
+}
+
+.display_clip video {
+  flex-grow:0;
+  flex-shrink:0;
+  width: 500px;
+  height: 500px;
+  margin: 5px;
+}
+
