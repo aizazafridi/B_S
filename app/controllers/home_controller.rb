@@ -23,6 +23,7 @@ class HomeController < ApplicationController
 
   def clip
       @clip = Clip.find(params[:id])
+      @suggested_clips = Clip.last(10)
   end
 
   def actress

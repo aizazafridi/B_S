@@ -33,7 +33,7 @@ module VideosHelper
     youtube_id = find_youtube_id url
 
     result = %(<iframe title="YouTube video player" width="#{width}"
-                height="#{height}" src="//www.youtube.com/embed/#{ youtube_id }"
+                height="#{height}" src="//www.youtube.com/embed/#{ youtube_id }?rel=0&amp;controls=1&amp&amp;showinfo=0&amp;modestbranding=1"
                 frameborder="0" allowfullscreen></iframe>)
     result.html_safe
   end
@@ -58,7 +58,7 @@ module VideosHelper
   # Main function
   # Return a video iframe
   # If the url provided is not a valid YouTube or Vimeo url it returns [nil]
-  def get_video_iframe(url, width = "560px", height = "315px")
+  def get_video_iframe(url, width = "400px", height = "400px")
     if find_vimeo_id(url)
       get_vimeo_iframe(url, width, height) 
     elsif find_youtube_id(url)
