@@ -1,18 +1,22 @@
 <html>
 
     <div class="clip_container">
-        <%= get_video_iframe(@clip.clip_src) %> 
+        <%= get_video_iframe(@clip.clip_src) %>
     </div>
 
-    
-    <% @suggested_clips.each do |latest_clip|
-            @temp_actress = Actress.find_by_id(latest_clip.actress_id)%>
+    <div class="headings">
+    Related Clips:
+    </div>
+    <div class="clip_container">
+    <% @suggested_clips.each do |suggested_clip|
+            @temp_actress = Actress.find_by_id(suggested_clip.actress_id)%>
             <div class="clips">
-                <%= link_to image_tag(latest_clip.image_url), {:controller => "home", :action => "clip", :id   => latest_clip.id }%>
-                Actress: <%= @temp_actress.first_name %> <br/>
-                Movie: <%= latest_clip.movie %>
+                <%= link_to image_tag(suggested_clip.image_url), {:controller => "home", :action => "clip", :id   => suggested_clip.id }%>
+                <br />Actress: <%= @temp_actress.first_name %> <br/>
+                Movie: <%= suggested_clip.movie %>
             </div>
     <%end %>
+    </div>
 
 
 </html>

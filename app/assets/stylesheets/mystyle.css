@@ -45,7 +45,6 @@
   flex-direction: row;
   flex-wrap: wrap;
   margin: 10px;
-  background-color: grey;
   border-radius: 10px;
 }
 
@@ -63,14 +62,12 @@
 }
 
 .clips {
-  background-color: grey;
   flex: 1 1 0px;
   margin: 20px;
-  border-radius: 10px;
 }
 
 .clips img {
-    margin: 5px;
+    border-radius: 5px;
     flex-grow:0;
     flex-shrink:0;
     width: 200px;
@@ -125,15 +122,44 @@
   display: block;
 }
 
-. clip_container {
+.clip_container {
   display: flex;
   width: 100%;
   flex-direction: row;
   flex-wrap: wrap;
   margin: 10px;
-  background-color: grey;
   border-radius: 10px;
 }
 
+.actress_page_image_container {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 10px;
+  border-radius: 10px;
+}
 
+.actress_page_image_container img {
+  margin: 5px;
+  flex-grow:0;
+  flex-shrink:0;
+  width: 400px;
+  height: 400px;
+}
 
+.headings {
+  display: flex;
+  margin-left: 25px;
+  font-weight:bold;
+  font-size: 20px;
+  background-color: #D3D3D3
+}
+
+.actress_description {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  font-weight:bold;
+
+}

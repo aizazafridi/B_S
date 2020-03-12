@@ -5,7 +5,7 @@
           <!-- top adds come here -->
         </div>
         <title>Bollywood Skin Home</title>
-       
+
         <%= stylesheet_link_tag('mystyle', :media => 'all') %>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -21,13 +21,13 @@
                     <a class="navbar-brand" href="#">Bollywood Skin</a>
                 </div>
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#">Actresses</a></li>
-                    <li><a href="#">Clips</a></li>
+                    <li> <%= link_to "Home", {:controller => "home", :action => "index"} %> </li>
+                    <li> <%= link_to "Actresses", {:controller => "home", :action => "browse_ac"}%> </li>
+                    <li> <%= link_to "Clips", {:controller => "home", :action => "browse_cl"}%> </li>
                 </ul>
             </div>
         </nav>
-        
+
         <div class="flex-container">
             <div class="adds">
                 <!-- Adds Here -->
@@ -39,7 +39,7 @@
                 <!-- Adds Here -->
             </div>
         </div>
-        
+
     </body>
 
 </html>

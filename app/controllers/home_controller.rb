@@ -28,5 +28,6 @@ class HomeController < ApplicationController
 
   def actress
       @actress = Actress.find(params[:id])
+      @clips = Clip.where(:actress_id => @actress.id)
   end
 end

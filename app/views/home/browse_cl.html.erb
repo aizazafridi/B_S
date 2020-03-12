@@ -1,15 +1,20 @@
 <html>
-    <% @clips.each do |clip| %>
-        <div class="actress">
-            <%= link_to image_tag(clip.image_url), {:controller => "home", :action => "clip", :id => clip.id } %>
-            <%= clip.clip_name %>
-            <%= clip.created_at %>
-        </div>
+    <div class="headings">
+    All Clips:
+    </div>
+    <div class="clip_container">
+    <% @clips.each do |clip|
+            @temp_actress = Actress.find_by_id(clip.actress_id)%>
+            <div class="clips">
+                <%= link_to image_tag(clip.image_url), {:controller => "home", :action => "clip", :id   => clip.id }%>
+                <br />Actress: <%= @temp_actress.first_name %> <br/>
+                Movie: <%= clip.movie %>
+            </div>
     <%end %>
-    
+    </div>
+
     <%= will_paginate @clips %>
-    
 
-    
+
+
 </html>
-

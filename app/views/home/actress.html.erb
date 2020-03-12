@@ -1,4 +1,24 @@
 <html>
-    <%= image_tag(@actress.image_path) %>
-</html>
+    <div class="actress_page_image_container">
+        <%= image_tag(@actress.image_path) %>
+        <div class="actress_description">
+          <br />First Name: <%= @actress.first_name %> <br />
+          Last Name: <%= @actress.last_name %> <br />
+          Description: <%= @actress.description %>
+        </div>
+    </div>
 
+    <div class="headings">
+    Her Clips:
+    </div>
+    <div class="clip_container">
+    <% @clips.each do |clip|
+            @temp_actress = Actress.find_by_id(clip.actress_id)%>
+            <div class="clips">
+                <%= link_to image_tag(clip.image_url), {:controller => "home", :action => "clip", :id   => clip.id }%>
+                <br />Actress: <%= @temp_actress.first_name %> <br/>
+                Movie: <%= clip.movie %>
+            </div>
+    <%end %>
+    </div>
+</html>
