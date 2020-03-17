@@ -1,14 +1,25 @@
 <html>
+    <div class="headings">
+      Search Actresses:
+    </div>
+
+    <div class="actress_search">
+      <%= simple_form_for(:search, :controller => "home", :action => 'browse_ac', method: "GET", :multipart => true ) do |f| %>
+        <%= f.input :first_name, input_html: {value: ""} %>
+        <%= f.submit "Search", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+
     <% @actresses.each do |actress| %>
         <div class="actress">
             <%= link_to image_tag(actress.image_path), {:controller => "home", :action => "actress", :id => actress.id } %>
-            <%= actress.first_name %> 
+            <%= actress.first_name %>
             <%= actress.last_name %>
         </div>
     <%end %>
-    
-    <%= will_paginate @actresses %>
-    
 
-    
+    <%= will_paginate @actresses %>
+
+
+
 </html>

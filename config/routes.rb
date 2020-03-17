@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root 'home#index'
 
   get 'home/browse_ac'
-
+  
   get 'home/browse_cl'
 
   #get 'home/clip'
@@ -16,8 +16,8 @@ Rails.application.routes.draw do
   resources :feature_clips
   resources :feature_actresses
   get 'demo/index'
-  
-  
+
+
 
   resources :actresses do
     member do

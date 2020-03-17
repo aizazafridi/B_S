@@ -13,8 +13,16 @@ class HomeController < ApplicationController
   end
 
   def browse_ac
+     #@actresses = Actress.paginate(:page => params[:page], :per_page => 20).order(:first_name)
+     @search = params["search"]
+     if @search.present?
+       @first_name = @search["first_name"]
+       ##@actresses = Actress.where(first_name: @first_name)
+       ##@actresses = Actress.paginate(:page => params[:page], :per_page => 20).order(:first_name).where(first_name: @first_name)
+       @actresses = Actress.paginate(:page => params[:page], :per_page => 20).order(:first_name).where("first_name LIKE ?", "%#{@first_name}%")
+     else
      @actresses = Actress.paginate(:page => params[:page], :per_page => 20).order(:first_name)
-     #@actresses = Actress.last(20)
+     end
   end
 
   def browse_cl
