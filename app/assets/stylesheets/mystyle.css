@@ -22,22 +22,41 @@
 
 .flex-container {
     display: flex;
-    background-color: light grey;
-    margin: 10px;
+    background-color: #eee;
 }
 
 .top_container {
     display: flex;
     flex-direction: row;
-    margin: 10px;
 }
 
 .content {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    margin: 10px;
     width: 100%;
+    background-color: #E8E8E8
+}
+
+.headings {
+  display: flex;
+  margin-left: 10px;
+  background-color: #fff;
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+
+.headings p {
+  font-weight:bold;
+  font-family: "Lucida Console", Courier, monospace;
+  font-size: 35px;
+  margin: 5px;
+}
+
+.clips p {
+  font-family: "Lucida Console", Courier, monospace;
+  font-size:15px;
+  line-height: normal;
 }
 
 .feature_container {
@@ -46,25 +65,37 @@
   flex-direction: row;
   flex-wrap: wrap;
   margin: 10px;
-  border-radius: 10px;
-}
-
-.feature_container img {
-  flex-grow:0;
-  flex-shrink:0;
-  width: 250px;
-  height: 250px;
-  margin: 5px;
+  justify-content: center;
+  background-color: #fff;
 }
 
 .feature_item {
   flex: 1 1 0px;
-  padding: 5px;
+  margin: 20px;
+  font-family: "Lucida Console", Courier, monospace;
+  font-size: 25px;
+  color:#2e2e2e;
+}
+
+.feature_item img {
+  width: 550px;
+  height: 550px
+}
+
+.clip_container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 10px;
+  border-radius: 10px;
+  justify-content: flex-start;
+
 }
 
 .clips {
   flex: 1 1 0px;
   margin: 20px;
+  background-color: #fff;
 }
 
 .clips img {
@@ -73,6 +104,7 @@
     flex-shrink:0;
     width: 200px;
     height: 200px;
+    margin: 5px;
 }
 
 .actress {
@@ -108,7 +140,7 @@
     width: 10%;
     flex-direction: column;
     justify-content: center;
-    background-color: grey;
+    background-color: rgb(1, 0, 18);
 }
 
 .add {
@@ -121,15 +153,6 @@
   text-align: center;
   height: 100px;
   display: block;
-}
-
-.clip_container {
-  display: flex;
-  width: 100%;
-  flex-direction: row;
-  flex-wrap: wrap;
-  margin: 10px;
-  border-radius: 10px;
 }
 
 .actress_page_image_container {
@@ -147,14 +170,6 @@
   width: 400px;
   height: 400px;
     border-radius: 10px;
-}
-
-.headings {
-  display: flex;
-  margin-left: 25px;
-  font-weight:bold;
-  font-size: 20px;
-  background-color: #D3D3D3
 }
 
 .actress_description {

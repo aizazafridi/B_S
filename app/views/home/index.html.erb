@@ -1,13 +1,21 @@
 <html>
 
+    <div class="headings">
+        <p> This Week Feature Actress </p>
+    </div>
     <div class="feature_container">
         <div class="feature_item">
             <%=link_to image_tag(@actress.image_path) , actress_path(@actress)%>
-
         </div>
         <div class="feature_item">
             <%= @feature_actress.description %>
         </div>
+    </div>
+
+    <div class="headings">
+        <p> This Week Feature Clip </p>
+    </div>
+    <div class="feature_container">
         <div class="feature_item">
             <%= link_to image_tag(@clip.image_url), {:controller => "home", :action => "clip", :id   => @clip.id }%>
         </div>
@@ -16,18 +24,18 @@
         </div>
     </div>
 
+
     <div class="headings">
-      Recently Added Clips:
+        <p> Rcently Added Clips </p>
     </div>
     <div class="clip_container">
     <% @latest_clips.each do |latest_clip|
             @temp_actress = Actress.find_by_id(latest_clip.actress_id)%>
             <div class="clips">
                 <%= link_to image_tag(latest_clip.image_url), {:controller => "home", :action => "clip", :id   => latest_clip.id }%>
-                <br />Actress: <%= @temp_actress.first_name %> <br/>
-                Movie: <%= latest_clip.movie %>
+                <br /> <p> Actress: <%= @temp_actress.first_name %> </p>  <br />
+                <p> Movie: <%= latest_clip.movie %> </p>
             </div>
     <%end %>
     </div>
-
 </html>

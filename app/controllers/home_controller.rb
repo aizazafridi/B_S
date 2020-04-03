@@ -9,7 +9,9 @@ class HomeController < ApplicationController
     @feature_clip = FeatureClip.order('created_at').last
     @clip = Clip.find_by_id(@feature_clip.clip_id)
 
-    @latest_clips = Clip.last(10)
+    #@latest_clips = Clip.last(10)
+    #@latest_clips = Clip.order("created_at desc")
+    @latest_clips = Clip.last(18).reverse
   end
 
   def browse_ac
