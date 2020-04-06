@@ -1,40 +1,33 @@
 <html>
 
-    <div class="headings">
-        <p> This Week Feature Actress </p>
-    </div>
     <div class="feature_container">
         <div class="feature_item">
-            <%=link_to image_tag(@actress.image_path) , actress_path(@actress)%>
-        </div>
-        <div class="feature_item">
-            <%= @feature_actress.description %>
-        </div>
-    </div>
+            <h1> Featured Actress </h1>
+            <%=link_to image_tag(@actress.image_path) , {:controller => "home", :action => "actress", :id => @actress.id}%>
+            <h2> <%= @actress.first_name %> &nbsp <%= @actress.last_name %> </h2>
+            <h3> <%= @feature_actress.description %> </h3>
 
-    <div class="headings">
-        <p> This Week Feature Clip </p>
-    </div>
-    <div class="feature_container">
+        </div>
         <div class="feature_item">
+            <h1> Featured Clip </h1>
             <%= link_to image_tag(@clip.image_url), {:controller => "home", :action => "clip", :id   => @clip.id }%>
-        </div>
-        <div class="feature_item">
-            <%= @feature_clip.description %>
+            <h3> Movie: <%= @clip.movie %> </h3>
+            <h3> <%= @clip.clip_description %> </h3>
+
         </div>
     </div>
 
 
     <div class="headings">
-        <p> Rcently Added Clips </p>
+        <h1> Rcently Added Clips </h1>
     </div>
     <div class="clip_container">
     <% @latest_clips.each do |latest_clip|
             @temp_actress = Actress.find_by_id(latest_clip.actress_id)%>
             <div class="clips">
                 <%= link_to image_tag(latest_clip.image_url), {:controller => "home", :action => "clip", :id   => latest_clip.id }%>
-                <br /> <p> Actress: <%= @temp_actress.first_name %> </p>  <br />
-                <p> Movie: <%= latest_clip.movie %> </p>
+                <h3> Actress: <%= @temp_actress.first_name %> </h3>
+                <h3> Movie: <%= latest_clip.movie %> </h3>
             </div>
     <%end %>
     </div>
