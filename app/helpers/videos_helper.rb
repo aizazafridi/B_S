@@ -20,7 +20,7 @@ module VideosHelper
 
   # Finds YouTube's video ID from given URL or [nil] if URL is invalid
   # The video ID matches the RegEx \[a-zA-Z0-9_-]{11}\
-  def find_youtube_id url 
+  def find_youtube_id url
     url = sanitize url
     matches = YOUTUBE_REGEX.match url.to_str
     if matches
@@ -58,11 +58,11 @@ module VideosHelper
   # Main function
   # Return a video iframe
   # If the url provided is not a valid YouTube or Vimeo url it returns [nil]
-  def get_video_iframe(url, width = "400px", height = "400px")
+  def get_video_iframe(url, width = "1000px", height = "600px")
     if find_vimeo_id(url)
-      get_vimeo_iframe(url, width, height) 
+      get_vimeo_iframe(url, width, height)
     elsif find_youtube_id(url)
-      get_youtube_iframe(url, width, height) 
+      get_youtube_iframe(url, width, height)
     end
   end
 end

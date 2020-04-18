@@ -69,7 +69,6 @@
   border: 1px solid #ddd;
   border-radius: 5px;
   padding: 5px;
-  al
 }
 
 .feature_item img:hover {
@@ -107,18 +106,59 @@
 }
 
 
-.clip_container {
+.clips_container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   margin: 10px;
   border-radius: 10px;
   justify-content: flex-start;
+}
 
+.actresses_container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 10px;
+  border-radius: 10px;
+  justify-content: space-around;
+}
+
+.clips_page_container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 10px;
+  border-radius: 10px;
+  justify-content: space-around;
+}
+
+.clips_page_clips {
+  flex-basis: 0;
+  margin: 20px;
+  background-color: #fff;
+}
+
+.clips_page_clips img {
+  border-radius: 5px;
+  flex-grow:0;
+  flex-shrink:0;
+  width: 200px;
+  height: 200px;
+  margin: 5px;
+}
+
+.clips_page_clips h3 {
+  font-weight:normal;
+  font-family: "Lucida Console", Courier, monospace;
+  font-size: 15px;
+  margin: 20px;
+  color: #0c6a93;
+  border: 1px solid #0c6a93;
+  text-align: center;
 }
 
 .clips {
-
   flex-basis: 0;
   margin: 20px;
   background-color: #fff;
@@ -144,18 +184,28 @@
 }
 
 .actress {
-    background-color: grey;
-    flex: 1 1 0px;
-    margin: 20px;
-    border-radius: 10px;
+  flex-basis: 0;
+  margin: 20px;
+  background-color: #fff;
 }
 
 .actress img {
     margin: 5px;
     flex-grow:0;
     flex-shrink:0;
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
+    margin: 5px;
+}
+
+.actress h3 {
+  font-weight:normal;
+  font-family: "Lucida Console", Courier, monospace;
+  font-size: 15px;
+  margin: 20px;
+  color: #0c6a93;
+  border: 1px solid #0c6a93;
+  text-align: center;
 }
 
 .vdo {
@@ -191,23 +241,6 @@
   background-color: white;
 }
 
-.actress_page_image_container {
-  display: flex;
-  width: 100%;
-  flex-direction: row;
-  flex-wrap: wrap;
-  margin: 10px;
-}
-
-.actress_page_image_container img {
-  margin: 5px;
-  flex-grow:0;
-  flex-shrink:0;
-  width: 400px;
-  height: 400px;
-  border-radius: 10px;
-}
-
 .actress_description {
   display: flex;
   flex-direction: row;
@@ -220,6 +253,14 @@
   margin-top: 10px;
   margin-left: 25px;
   width: 100%;
+}
+
+.actress_search h3 {
+  font-weight:normal;
+  font-family: "Lucida Console", Courier, monospace;
+  font-size: 15px;
+  margin: 5px;
+  color: #0c6a93;
 }
 
 .headings {
@@ -239,6 +280,71 @@
   border: 1px solid #0c6a93;
 }
 
-.navbar-inverse {
-  background-color: white;
+.show_clip_container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 10px;
+  justify-content: center;
+}
+
+.display_clip {
+  margin: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.display_clip h3 {
+  font-weight: normal;
+  font-family: "Lucida Console", Courier, monospace;
+  font-size: 15px;
+  margin: 20px;
+  color: #0c6a93;
+  text-align: left;
+}
+
+.suggested_clips {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: left;
+  flex-wrap: wrap;
+  margin: 10px;
+  justify-content: center;
+}
+
+.suggested_clip {
+  flex-basis: 0;
+  margin: 20px;
+  background-color: #fff;;
+}
+
+.suggested_clip img {
+  border-radius: 5px;
+  flex-grow:0;
+  flex-shrink:0;
+  width: 200px;
+  height: 200px;
+  margin: 5px;
+}
+
+.suggested_clip_info {
+  display: inline-block;
+  vertical-align: top;
+  padding: 0 0 0 5px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.suggested_clip_info p {
+  font-weight:normal;
+  font-family: "Lucida Console", Courier, monospace;
+  font-size: 15px;
+  margin: 20px;
+  color: #0c6a93;
 }

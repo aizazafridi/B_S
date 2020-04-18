@@ -21,7 +21,7 @@
     <div class="headings">
         <h1> Rcently Added Clips </h1>
     </div>
-    <div class="clip_container">
+    <div class="clips_container">
     <% @latest_clips.each do |latest_clip|
             @temp_actress = Actress.find_by_id(latest_clip.actress_id)%>
             <div class="clips">

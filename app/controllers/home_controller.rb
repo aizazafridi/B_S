@@ -23,7 +23,7 @@ class HomeController < ApplicationController
        ##@actresses = Actress.paginate(:page => params[:page], :per_page => 20).order(:first_name).where(first_name: @first_name)
        @actresses = Actress.paginate(:page => params[:page], :per_page => 20).order(:first_name).where("first_name LIKE ?", "%#{@first_name}%")
      else
-     @actresses = Actress.paginate(:page => params[:page], :per_page => 20).order(:first_name)
+     @actresses = Actress.paginate(:page => params[:page], :per_page => 15).order(:first_name)
      end
   end
 
@@ -33,7 +33,9 @@ class HomeController < ApplicationController
 
   def clip
       @clip = Clip.find(params[:id])
-      @suggested_clips = Clip.last(10)
+      @actress = Actress.find(@clip.actress_id)
+      #@suggested_clips = Clip.last(10)
+      @suggested_clips = Clip.order("RAND()").limit(10)
   end
 
   def actress
