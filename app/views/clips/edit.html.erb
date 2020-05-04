@@ -1,11 +1,10 @@
-<h1>Edit a clip</h1>
-</br>
+<div class="container-fluid">
 
 <%= link_to("Back to Clips", clips_path()) %>
 
 <%= form_for(@clip) do |f| %>
 
-<table summry = "Clip form fields">
+<table class = "table table-striped">
 
   <tr>
     <th>Clip Name</th>
@@ -13,23 +12,23 @@
   </tr>
   <tr>
     <th>Description</th>
-    <td> <%= f.text_area(:clip_description) %> </td>
+    <td> <%= f.text_area(:clip_description, :rows => 2, style: 'width:100%;') %> </td>
   </tr>
   <tr>
     <th>Image</th>
     <td> <%= f.file_field :image_url %> </td>
   </tr>
   <tr>
-    <th>Location</th>
-    <td> <%= f.file_field :clip_src %> </td>
+    <th>Clip Url</th>
+    <td> <%= f.text_area(:clip_src, :rows => 2, style: 'width:100%;') %> </td>
   </tr>
   <tr>
     <th>Movie</th>
-    <td><%= f.text_field(:movie) %> </td>
+    <td><%= f.text_field(:movie, style: 'width:80%;') %> </td>
   </tr>
   <tr>
     <th>Release Date</th>
-    <td><%= f.date_field(:release_date) %> </td>
+    <td><%= f.date_field(:release_date, style: 'width: 80%;') %> </td>
   </tr>
   <tr>
     <th>Tag1</th>
@@ -44,11 +43,25 @@
     <td><%= f.text_field(:clip_tag3) %></td>
   </tr>
   <tr>
+    <th>Tag4</th>
+    <td><%= f.text_field(:clip_tag4) %> </td>
+  </tr>
+  <tr>
+    <th>Tag5</th>
+    <td><%= f.text_field(:clip_tag5) %> </td>
+  </tr>
+  <tr>
     <th>Actress<th>
-    <td> <%= f.collection_select(:actress_id, Actress.all, :id, :first_name) %></td>
+    <%= f.collection_select(:actress_id, Actress.all, :id, :first_name, {:include_blank => false}, {class: "form-control"}) %>
+  </tr>
+  <tr>
+    <th>Mature</th>th
+    <td> <%= f.select :mature, options_for_select(['false', 'true']), {}, {class:"form-control"} %> </td>
   </tr>
 
 </table>
 
 <%= f.submit("Edit Clip") %>
 <%end %>
+
+</div>

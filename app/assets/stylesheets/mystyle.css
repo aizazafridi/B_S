@@ -1,15 +1,4 @@
 
-.roundedcorners {
-  border-radius: 25px;
-}
-
-.border {
-  border: 1px solid black;
-}
-
-.img {
-  border-radius: 25px;
-}
 
 .top_adds {
     display: flex;
@@ -269,15 +258,24 @@
   background-color: #fff;
   margin-top: 10px;
   margin-bottom: 0px;
+  width: 100%;
 }
 
 .headings h1 {
   font-weight:bold;
   font-family: "Lucida Console", Courier, monospace;
-  font-size: 35px;
+  font-size: 25px;
   margin: 5px;
   color: #0c6a93;
   border: 1px solid #0c6a93;
+}
+
+.headings h2 {
+  font-weight:normal;
+  font-family: "Lucida Console", Courier, monospace;
+  font-size: 18px;
+  margin: 5px;
+  color: #0c6a93;
 }
 
 .show_clip_container {
@@ -347,4 +345,57 @@
   font-size: 15px;
   margin: 20px;
   color: #0c6a93;
+}
+
+.more_clips_text {
+  display: flex;
+  margin-left: 25px;
+  background-color: #fff;
+  margin-top: 5px;
+  margin-bottom: 0px;
+}
+
+.more_clips_text h4 {
+  font-weight:bold;
+  font-family: "Lucida Console", Courier, monospace;
+  font-size: 20px;
+  margin: 5px;
+  color: #0c6a93;
+  border: 1px solid #0c6a93;
+}
+
+.show_actress_container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 10px;
+  justify-content: center;
+
+}
+
+.show_actress {
+  margin: 20px;
+  font-family: "Lucida Console", Courier, monospace;
+  font-size: 25px;
+  background-color: #fff;
+}
+
+.show_actress img {
+  height: 600px;
+  width: 600px;
+  margin: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.show_actress h3 {
+  font-weight: normal;
+  font-family: "Lucida Console", Courier, monospace;
+  font-size: 15px;
+  margin: 20px;
+  color: #0c6a93;
+  text-align: center;
 }

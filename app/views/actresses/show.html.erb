@@ -1,55 +1,37 @@
 
-<div class="container">
-
-  <div class="row">
-
-    <div class="col-md-4">
-      <%= image_tag(@actress.image_path, :class => "img-responsive rounded") %>
+<div class="show_actress_container">
+    <div class="show_actress">
+        <%= image_tag(@actress.image_path) %>
+        <h3> Id: <%= @actress.id %> </h3>
+        <h3> First Name: <%= @actress.first_name %> </h3>
+        <h3> Last Name: <%= @actress.last_name %> </h3>
+        <h3> Created At: <%= @actress.created_at %> </h3>
+        <h3> Updated At: <%= @actress.updated_at %> </h3>
+        <h3> Description: <%= @actress.description %> </h3>
+        <h3> Total Clips: <%= @clips.count %> </h3>
     </div>
-
-<table class="table-striped table-bordered table-hover">
-  <tr>
-    <td class="col-md-4">First Name</th>
-    <td class="col-md-4"><%= @actress.first_name %> </td>
-  </tr>
-  <tr>
-    <td class="col-md-4">Last Name</th>
-    <td class="col-md-4"><%= @actress.last_name %> </td>
-  </tr>
-  <tr>
-    <td class="col-md-4">Clips</th>
-    <td class="col-md-4"><%= @clips.count %>
-  </tr>
-  <tr>
-    <td class="col-md-4">Created at</th>
-    <td class="col-md-4"><%= @actress.created_at %> </td>
-  </tr>
-  <tr>
-    <td class="col-md-4">Updated at</th>
-    <td class="col-md-4"><%= @actress.updated_at %> </td>
-  </tr>
-  <tr>
-    <td class="col-md-4">  <%= link_to("Edit", edit_actress_path(@actress)) %> </td>
-    <td class="col-md-4"></td>
-  </tr>
-  <tr>
-    <td class="col-md-4">  <%= link_to("Back", actresses_path) %> </td>
-    <td class="col-md-4"></td>
-  </tr>
-
-</table>
 </div>
 
-<br/><br/>
-  <table>
-    <% @clips.each do |clip| %>
-      <tr>
-        <!--<td><%= link_to("show clip", clip_path(clip)) %> </td> -->
-        <td class="col-md-4 col-lg-4">
-          <%= video_tag(clip.clip_src, controls: true, autobuffer: true, style: 'height:500px; width: 500px') %>
-        </td>
-      </tr>
-  </table>
-    <% end %>
+<div class="headings">
+    <h1> All Clips </h1>
+</div>
+
+<div class="suggested_clips">
+<% @clips.each do |suggested_clip| %>
+    <div class="suggested_clip">
+        <%= link_to image_tag(suggested_clip.image_url), {:controller => "clips", :action => "show", :id   => suggested_clip.id }%>
+        <div class="suggested_clip_info">
+          <p> Actress:    <%= link_to @actress.first_name, {:controller => "home", :action => "actress", :id => @actress.id} %> &nbsp
+                          <%= link_to @actress.last_name, {:controller => "home", :action => "actress", :id => @actress.id} %> </p>
+          <p> Movie:      <%= suggested_clip.movie %> </p>
+          <p> Info:       <%= suggested_clip.clip_description %> </p>
+          <p> Date Added: <%= suggested_clip.created_at %> </p>
+          <p> Tags:  &nbsp <span style="background-color:#6495ED"> <%= suggested_clip.clip_tag1 %> </span>
+                     &nbsp <span style="background-color:#6495ED"> <%= suggested_clip.clip_tag2 %> </span>
+                     &nbsp <span style="background-color:#6495ED"> <%= suggested_clip.clip_tag3 %> </span> </p>
+        </div>
+    </div>
+<%end %>
+</div>
 
 </div>

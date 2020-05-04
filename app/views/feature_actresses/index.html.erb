@@ -2,10 +2,10 @@
     <h4> Feature Actresses</h4>
     <table class="table-striped table-bordered table-hover">
         <tr class="row row-eq-height">
-            <th>Date</th>
-            <th></th>
-            <th></th>
-            <th></th>
+            <th class="col-md-3">Date</th>
+            <th class="col-md-3"> </th>
+            <th class="col-md-3"> </th>
+            <th class="col-md-3"> </th>
         </tr>
         <% @feature_actresses.each do |feature_actress| %>
         <tr class = "row row-eq-height">
@@ -20,4 +20,3 @@
 </div>
 
 <%= will_paginate @features, render: BootstrapPagination::Rails %>
-

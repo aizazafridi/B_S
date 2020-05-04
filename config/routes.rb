@@ -1,23 +1,17 @@
 Rails.application.routes.draw do
 
   devise_for :users
+
   root 'home#index'
-
   get 'home/browse_ac'
-  
   get 'home/browse_cl'
-
-  #get 'home/clip'
+  get 'home/search_cl/:tag', to: 'home#search_cl'
   get '/home/clip/:id', to: 'home#clip'
-
-  #get 'home/actress'
   get '/home/actress/:id', to: 'home#actress'
 
   resources :feature_clips
   resources :feature_actresses
   get 'demo/index'
-
-
 
   resources :actresses do
     member do

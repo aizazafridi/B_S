@@ -6,7 +6,6 @@
             <%=link_to image_tag(@actress.image_path) , {:controller => "home", :action => "actress", :id => @actress.id}%>
             <h2> <%= @actress.first_name %> &nbsp <%= @actress.last_name %> </h2>
             <h3> <%= @feature_actress.description %> </h3>
-
         </div>
         <div class="feature_item">
             <h1> Featured Clip </h1>
@@ -19,16 +18,21 @@
 
 
     <div class="headings">
-        <h1> Rcently Added Clips </h1>
+        <h1> Recently Added Clips </h1>
     </div>
     <div class="clips_container">
     <% @latest_clips.each do |latest_clip|
-            @temp_actress = Actress.find_by_id(latest_clip.actress_id)%>
+            @temp_actress = Actress.find_by_id(latest_clip.actress_id) %>
             <div class="clips">
                 <%= link_to image_tag(latest_clip.image_url), {:controller => "home", :action => "clip", :id   => latest_clip.id }%>
-                <h3> Actress: <%= @temp_actress.first_name %> </h3>
+                <h3> Actress: <%= link_to @temp_actress.first_name, {:controller => "home", :action => "actress", :id => @temp_actress.id} %> </h3>
                 <h3> Movie: <%= latest_clip.movie %> </h3>
             </div>
     <%end %>
     </div>
+
+    <div class="more_clips_text">
+      <h4> <%= link_to "View More", {:controller => "home", :action => "browse_cl"}%>  </h4>
+    </div>
+
 </html>

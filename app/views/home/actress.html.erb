@@ -1,24 +1,66 @@
 <html>
-    <div class="actress_page_image_container">
-        <%= image_tag(@actress.image_path) %>
-        <div class="actress_description">
-          <br />First Name: <%= @actress.first_name %> <br />
-          Last Name: <%= @actress.last_name %> <br />
-          Description: <%= @actress.description %>
+
+
+    <div class="show_actress_container">
+        <div class="show_actress">
+            <%= image_tag(@actress.image_path) %>
+            <h3> First Name: <%= @actress.first_name %> </h3>
+            <h3> Last Name: <%= @actress.last_name %> </h3>
+            <h3> Total Clips: <%= @clips.count %> </h3>
         </div>
     </div>
 
+    <% if @clip_exists == false %>
+
+      <div class="headings">
+        <h1> More Clips of <%= @actress.first_name.concat(" ").concat(@actress.last_name) %> </h1>
+      </div>
+      <div class="headings">
+        <h2> No clips found. We are adding new clips daily. Please check back later </h2>
+      </div>
+
+    <% else %>
+
     <div class="headings">
-    Her Clips:
+        <h1> More Clips of <%= @actress.first_name.concat(" ").concat(@actress.last_name) %> </h1>
     </div>
-    <div class="clip_container">
-    <% @clips.each do |clip|
-            @temp_actress = Actress.find_by_id(clip.actress_id)%>
-            <div class="clips">
-                <%= link_to image_tag(clip.image_url), {:controller => "home", :action => "clip", :id   => clip.id }%>
-                <br />Actress: <%= @actress.first_name %> <br/>
-                Movie: <%= clip.movie %>
+
+    <div class="suggested_clips">
+    <% @clips.each do |suggested_clip| %>
+        <div class="suggested_clip">
+            <%= link_to image_tag(suggested_clip.image_url), {:controller => "home", :action => "clip", :id   => suggested_clip.id }%>
+            <div class="suggested_clip_info">
+              <p> Actress:    <%= link_to @actress.first_name, {:controller => "home", :action => "actress", :id => @actress.id} %> &nbsp
+                              <%= link_to @actress.last_name, {:controller => "home", :action => "actress", :id => @actress.id} %> </p>
+              <p> Movie:      <%= suggested_clip.movie %> </p>
+              <p> Info:       <%= suggested_clip.clip_description %> </p>
+              <p> Date Added: <%= suggested_clip.created_at %> </p>
+              <p> Tags: &nbsp
+                         <%if suggested_clip.clip_tag1.present? %>
+                            <span style="background-color:#6495ED"> <%= link_to suggested_clip.clip_tag1, {:controller => "home", :action => "search_cl", :tag => suggested_clip.clip_tag1 } %> </span>
+                         <%end%>
+                         &nbsp
+                         <%if suggested_clip.clip_tag2.present? %>
+                            <span style="background-color:#6495ED"> <%= link_to suggested_clip.clip_tag2, {:controller => "home", :action => "search_cl", :tag => suggested_clip.clip_tag2 } %> </span>
+                         <%end%>
+                         &nbsp
+                         <%if suggested_clip.clip_tag3.present? %>
+                            <span style="background-color:#6495ED"> <%= link_to suggested_clip.clip_tag3, {:controller => "home", :action => "search_cl", :tag => suggested_clip.clip_tag3 } %> </span>
+                         <%end%>
+                         &nbsp
+                         <%if suggested_clip.clip_tag4.present? %>
+                            <span style="background-color:#6495ED"> <%= link_to suggested_clip.clip_tag4, {:controller => "home", :action => "search_cl", :tag => suggested_clip.clip_tag4 } %> </span>
+                         <%end%>
+                         &nbsp
+                         <%if suggested_clip.clip_tag5.present? %>
+                            <span style="background-color:#6495ED"> <%= link_to suggested_clip.clip_tag5, {:controller => "home", :action => "search_cl", :tag => suggested_clip.clip_tag5 } %> </span>
+                         <%end%>
+              </p>
             </div>
+        </div>
     <%end %>
     </div>
+
+    <%end %>
+
 </html>

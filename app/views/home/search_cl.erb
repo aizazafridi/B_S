@@ -1,0 +1,42 @@
+<html>
+
+<div class="suggested_clips">
+<% @clips.each do |suggested_clip| %>
+    <div class="suggested_clip">
+        <%= link_to image_tag(suggested_clip.image_url), {:controller => "home", :action => "clip", :id   => suggested_clip.id }%>
+        <div class="suggested_clip_info">
+          <% @actress = Actress.find_by_id(suggested_clip.actress_id) %>
+          <p> Actress:    <%= link_to @actress.first_name, {:controller => "home", :action => "actress", :id => @actress.id} %> &nbsp
+                          <%= link_to @actress.last_name, {:controller => "home", :action => "actress", :id => @actress.id} %> </p>
+          <p> Movie:      <%= suggested_clip.movie %> </p>
+          <p> Info:       <%= suggested_clip.clip_description %> </p>
+          <p> Date Added: <%= suggested_clip.created_at %> </p>
+          <p> Tags: &nbsp
+                     <%if suggested_clip.clip_tag1.present? %>
+                        <span style="background-color:#6495ED"> <%= link_to suggested_clip.clip_tag1, {:controller => "home", :action => "search_cl", :tag => suggested_clip.clip_tag1 } %> </span>
+                     <%end%>
+                     &nbsp
+                     <%if suggested_clip.clip_tag2.present? %>
+                        <span style="background-color:#6495ED"> <%= link_to suggested_clip.clip_tag2, {:controller => "home", :action => "search_cl", :tag => suggested_clip.clip_tag2 } %> </span>
+                     <%end%>
+                     &nbsp
+                     <%if suggested_clip.clip_tag3.present? %>
+                        <span style="background-color:#6495ED"> <%= link_to suggested_clip.clip_tag3, {:controller => "home", :action => "search_cl", :tag => suggested_clip.clip_tag3 } %> </span>
+                     <%end%>
+                     &nbsp
+                     <%if suggested_clip.clip_tag4.present? %>
+                        <span style="background-color:#6495ED"> <%= link_to suggested_clip.clip_tag4, {:controller => "home", :action => "search_cl", :tag => suggested_clip.clip_tag4 } %> </span>
+                     <%end%>
+                     &nbsp
+                     <%if suggested_clip.clip_tag5.present? %>
+                        <span style="background-color:#6495ED"> <%= link_to suggested_clip.clip_tag5, {:controller => "home", :action => "search_cl", :tag => suggested_clip.clip_tag5 } %> </span>
+                     <%end%>
+          </p>
+        </div>
+    </div>
+<%end %>
+</div>
+
+<%= will_paginate @clips, renderer: BootstrapPagination::Rails %>
+
+</html>

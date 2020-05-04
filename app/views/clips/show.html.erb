@@ -1,47 +1,25 @@
+<html>
 
-<div class="container">
-
-<div class="row">
-
-  <div class="col-md-4">
-     <%= image_tag(@clip.image_url, :class => "img-responsive rounded") %>
-  </div>
-
-<table class="table-striped table-bordered table-hover">
-  <tr>
-    <td class="col-md-4"> Name: </th>
-    <td class="col-md-4"> <%= @clip.clip_name %> </td>
-  </tr>
-  <tr>
-    <td class="col-md-4"> Description: </th>
-    <td class="col-md-4"> <%= @clip.clip_description %> </td>
-  </tr>
-  <tr>
-    <td class="col-md-4"> Movie: </th>
-    <td class="col-md-4"> <%= @clip.movie %> </td>
-  </tr>
-  <tr>
-    <td class="col-md-4"> Release Date: </th>
-    <td class="col-md-4"> <%= @clip.release_date %> </td>
-  </tr>
-  <tr>
-    <td class="col-md-4"> Actress: </th>
-    <td class="col-md-4"> <%= @actress.first_name %> </td>
-  </tr>
-  <tr>
-    <td class="col-md-4"> Tags: </th>
-    <td class="col-md-4"> <%= @clip.clip_tag1 %> <span> <%= @clip.clip_tag2 %> </span> <span> <%= @clip.clip_tag3 %> </span> </td>
-  </tr>
-  </table>
-
+<div class="show_clip_container">
+    <div class="display_clip">
+      <%= get_video_iframe(@clip.clip_src) %>
+      <h3> Clip Id: <%= @clip.id %> </h3>
+      <h3> Actress Id: <%= @clip.actress_id %> </h3>
+      <h3> Actress: <%= link_to @actress.first_name.concat(" ").concat(@actress.last_name), {:controller => "home", :action => "actress", :id => @actress.id} %> </h3>
+      <h3> Movie:   <%= @clip.movie %> </h3>
+      <h3> Clip Name:   <%= @clip.clip_name %> </h3>
+      <h3> Description:    <%= @clip.clip_description %> </h3>
+      <h3> Created At:   <%= @clip.created_at %> </h3>
+      <h3> Updated At:   <%= @clip.updated_at %> </h3>
+      <h3> Mature: <%= @clip.mature %> </h3>
+      <h3> Broken: <%= @clip.link_broken %> </h3>
+      <h3> Tags: &nbsp <span style="background-color:#6495ED"> <%= @clip.clip_tag1 %> </span>
+                 &nbsp <span style="background-color:#6495ED"> <%= @clip.clip_tag2 %> </span>
+                 &nbsp <span style="background-color:#6495ED"> <%= @clip.clip_tag3 %> </span>
+                 &nbsp <span style="background-color:#6495ED"> <%= @clip.clip_tag4 %> </span>
+                 &nbsp <span style="background-color:#6495ED"> <%= @clip.clip_tag5 %> </span> </h3>
+      </div>
+      <h3> <%= link_to("Edit", edit_clip_path(@clip)) %> </h3>
 </div>
 
-<br/><br/>
-
-  <div class="row">
-    <div class="col-md-4">
-      <%= video_tag(@clip.clip_src, controls: true, autobuffer: true) %>
-    </div>
-  </div>
-
-</div>
+</html>

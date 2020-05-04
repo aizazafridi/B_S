@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200322235034) do
+ActiveRecord::Schema.define(version: 20200504174030) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "namespace"
@@ -66,6 +66,10 @@ ActiveRecord::Schema.define(version: 20200322235034) do
     t.integer "image_url_file_size"
     t.datetime "image_url_updated_at"
     t.string "clip_src"
+    t.boolean "mature", default: false
+    t.boolean "link_broken", default: false
+    t.string "clip_tag4"
+    t.string "clip_tag5"
     t.index ["actress_id"], name: "index_clips_on_actress_id"
   end
 

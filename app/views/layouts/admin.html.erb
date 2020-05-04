@@ -1,18 +1,17 @@
 
 <html>
   <head>
-    <title> Bollywood Skin Admin: <%= @page_title || "Admin Area" %> </title>
-    <%= stylesheet_link_tag('application', :media => 'all') %>
-    <%= javascript_include_tag('application') %>
 
-<style>
-video {
-  max-width: 100%;
-  max-height: auto;
-}
-</style>
+    <%= stylesheet_link_tag('mystyle', :media => 'all') %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:light' rel='stylesheet' type='text/css'>
+    
+    <title> Bollywood Skin Admin: <%= @page_title || "Admin Area" %> </title>
 
   </head>
+
   <body>
 
     <!-- Nvigtion Menu -->
