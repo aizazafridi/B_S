@@ -15,7 +15,15 @@
   <tr class="row">
     <td class="col-md-1"> <%= clip.actress_id %> </td>
     <td class="col-md-2"> <%= clip.clip_name %> </td>
-    <td class="col-md-2"> <%= image_tag(clip.image_url, :class => "img-responsive rounded") %> </td>
+    <td class="col-md-2">
+      <%=  @video_info = VideoInfo.new(clip.clip_src)
+           if clip.image_url.present?
+              @image = clip.image_url
+           else
+              @image = @video_info.thumbnail_large
+           end 
+           image_tag(@image, :class => "img-responsive rounded") %>
+    </td>
     <td class="col-md-2"> <%= clip.movie %> </td>
     <!--<td class="col-md-2">video_tag(clip.clip_src, controls: true, autobuffer: true) %> </td> -->
     <td class="col-md-1"> <%= link_to("Show",clip_path(clip)) %> </td>

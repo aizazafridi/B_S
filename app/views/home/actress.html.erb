@@ -28,7 +28,13 @@
     <div class="suggested_clips">
     <% @clips.each do |suggested_clip| %>
         <div class="suggested_clip">
-            <%= link_to image_tag(suggested_clip.image_url), {:controller => "home", :action => "clip", :id   => suggested_clip.id }%>
+            <%= @video_info = VideoInfo.new(suggested_clip.clip_src)
+            if suggested_clip.image_url.present?
+              @image = suggested_clip.image_url
+            else
+              @image = @video_info.thumbnail_large
+            end
+            link_to image_tag(@image), {:controller => "home", :action => "clip", :id   => suggested_clip.id }%>
             <div class="suggested_clip_info">
               <p> Actress:    <%= link_to @actress.first_name, {:controller => "home", :action => "actress", :id => @actress.id} %> &nbsp
                               <%= link_to @actress.last_name, {:controller => "home", :action => "actress", :id => @actress.id} %> </p>

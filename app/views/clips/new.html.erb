@@ -21,6 +21,10 @@
     <td> <%= f.text_area(:clip_src, :rows => 2, style: 'width:100%;') %> </td>
   </tr>
   <tr>
+    <th>Download URL</th>
+    <td> <%= f.text_area(:download_link, :rows => 2, style: 'width:100%;') %> </td>
+  </tr>
+  <tr>
     <th>Movie</th>
     <td><%= f.text_field(:movie, style: 'width:80%;') %> </td>
   </tr>
@@ -59,7 +63,7 @@
 
 </table>
 
-<%=f.submit("Add Clip")%> 
+<%=f.submit("Add Clip")%>
 <%end %>
 
 </div>
