@@ -7,10 +7,10 @@
     <div class="clips_page_container">
     <% @clips.each do |clip|
             @temp_actress = Actress.find_by_id(clip.actress_id)
-            @video_info = VideoInfo.new(clip.clip_src)
             if clip.image_url.present?
              @image = clip.image_url
            else
+             @video_info = VideoInfo.new(clip.clip_src)
              @image = @video_info.thumbnail_large
            end %>
             <div class="clips_page_clips">

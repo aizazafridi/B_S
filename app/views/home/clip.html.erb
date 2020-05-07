@@ -2,12 +2,20 @@
 
     <div class="show_clip_container">
         <div class="display_clip">
-          <%= get_video_iframe(@clip.clip_src) %>
+          <%=if @clip.download_link.present?
+                image_tag(@clip.image_url)
+             else
+                get_video_iframe(@clip.clip_src)
+             end %>
           <% if @clip.mature == true %>
           <h3> <span style="font-weight:bold; font-size:25px; background-color:red; color:white; padding: 2px"> Warning: Mature Content </span> </h3>
           <h3> <span style="font-weight: bold; color:red; border:1px solid red"> By playing this clip you agree that you are at least 18 years of age </span> </h3>
           <%end%>
-
+          <h3>
+          <%= if @clip.download_link.present?
+                link_to "Download Clip", @clip.download_link
+              end %>
+          </h3>
           <h3> Actress: <%= link_to @actress.first_name.concat(" ").concat(@actress.last_name), {:controller => "home", :action => "actress", :id => @actress.id} %> </h3>
           <h3> Movie:   <%= @clip.movie %> </h3>
           <h3> Info:    <%= @clip.clip_description %> </h3>
@@ -42,10 +50,10 @@
     <div class="suggested_clips">
     <% @suggested_clips.each do |suggested_clip|
        @temp_actress = Actress.find_by_id(suggested_clip.actress_id)
-       @video_info = VideoInfo.new(suggested_clip.clip_src)
        if suggested_clip.image_url.present?
         @image = suggested_clip.image_url
       else
+        @video_info = VideoInfo.new(suggested_clip.clip_src)
         @image = @video_info.thumbnail_large
       end %>
         <div class="suggested_clip">

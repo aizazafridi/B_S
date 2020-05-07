@@ -66,7 +66,7 @@ class ClipsController < ApplicationController
 private
 
   def clip_params
-    params.require(:clip).permit(:actress_id, :clip_name, :clip_description, :movie, :release_date, :clip_tag1, :clip_tag2, :clip_tag3, :clip_tag4, :clip_tag5, :clip_src, :image_url, :mature, :link_broken)
+    params.require(:clip).permit(:actress_id, :clip_name, :clip_description, :movie, :release_date, :clip_tag1, :clip_tag2, :clip_tag3, :clip_tag4, :clip_tag5, :clip_src, :image_url, :mature, :link_broken, :download_link)
   end
 
 end

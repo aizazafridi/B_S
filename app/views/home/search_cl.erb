@@ -3,10 +3,10 @@
 <div class="suggested_clips">
 <% @clips.each do |suggested_clip| %>
     <div class="suggested_clip">
-        <%= @video_info = VideoInfo.new(suggested_clip.clip_src)
-        if suggested_clip.image_url.present?
+        <%= if suggested_clip.image_url.present?
          @image = suggested_clip.image_url
        else
+         @video_info = VideoInfo.new(suggested_clip.clip_src)
          @image = @video_info.thumbnail_large
        end
        link_to image_tag(@image), {:controller => "home", :action => "clip", :id   => suggested_clip.id } %>
