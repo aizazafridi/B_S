@@ -12,7 +12,7 @@ class ActressesController < ApplicationController
       ##@actresses = Actress.paginate(:page => params[:page], :per_page => 20).order(:first_name).where(first_name: @first_name)
       @actresses = Actress.paginate(:page => params[:page], :per_page => 20).order(:first_name).where("first_name LIKE ?", "%#{@first_name}%")
     else
-    @actresses = Actress.paginate(:page => params[:page], :per_page => 40).order(:first_name)
+      @actresses = Actress.paginate(:page => params[:page], :per_page => 40).order(:first_name)
     end
   end
 

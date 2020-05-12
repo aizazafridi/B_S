@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'home/search_cl/:tag', to: 'home#search_cl'
   get '/home/clip/:id', to: 'home#clip'
   get '/home/actress/:id', to: 'home#actress'
+  get '/home/report_link/:id', to: 'home#report_link'
 
   resources :feature_clips
   resources :feature_actresses

@@ -3,7 +3,7 @@
     <div class="show_clip_container">
         <div class="display_clip">
           <%=if @clip.download_link.present?
-                image_tag(@clip.image_url)
+                image_tag(@clip.image_url, :size => "1000x600")
              else
                 get_video_iframe(@clip.clip_src)
              end %>
@@ -11,10 +11,16 @@
           <h3> <span style="font-weight:bold; font-size:25px; background-color:red; color:white; padding: 2px"> Warning: Mature Content </span> </h3>
           <h3> <span style="font-weight: bold; color:red; border:1px solid red"> By playing this clip you agree that you are at least 18 years of age </span> </h3>
           <%end%>
+          <% if @clip.link_broken == false %>
+                 <h3> <%= link_to "Report Link Not Working", {:controller => "home", :action => "report_link", :id => @clip.id} %> </h3>
+          <%end%>
+
           <h3>
+          <span style="font-weight:bold; font-size:25px; background-color:blue;">
           <%= if @clip.download_link.present?
                 link_to "Download Clip", @clip.download_link
               end %>
+          </span>
           </h3>
           <h3> Actress: <%= link_to @actress.first_name.concat(" ").concat(@actress.last_name), {:controller => "home", :action => "actress", :id => @actress.id} %> </h3>
           <h3> Movie:   <%= @clip.movie %> </h3>

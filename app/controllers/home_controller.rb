@@ -53,4 +53,15 @@ class HomeController < ApplicationController
       end
   end
 
+  def report_link
+      @clip = Clip.find(params[:id])
+      @clip.update_attribute(:link_broken,true)
+  end
+
+  private
+
+    def clip_params
+      params.require(:clip).permit(:link_broken)
+    end
+
 end
