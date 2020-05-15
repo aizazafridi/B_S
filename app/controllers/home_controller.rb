@@ -20,7 +20,7 @@ class HomeController < ApplicationController
   end
 
   def browse_cl
-       @clips = Clip.paginate(:page => params[:page], :per_page => 20).order(:created_at)
+       @clips = Clip.paginate(:page => params[:page], :per_page => 20).order('created_at desc')
   end
 
   def search_cl
@@ -45,8 +45,8 @@ class HomeController < ApplicationController
       #check if record exist
       if Clip.exists?(:actress_id => @actress.id)
         @clip_exists = true
-        #@clips = Clip.paginate(:page => params[:page], :per_page => 10).where(:actress_id => @actress.id)
-        @clips = Clip.where(:actress_id => @actress.id)
+        @clips = Clip.paginate(:page => params[:page], :per_page => 10).where(:actress_id => @actress.id).order('created_at desc')
+        #@clips = Clip.where(:actress_id => @actress.id)
       else
         @clips = Clip.where(:actress_id => @actress.id)
         @clip_exists = false

@@ -12,9 +12,11 @@
           <h3> <span style="font-weight: bold; color:red; border:1px solid red"> By playing this clip you agree that you are at least 18 years of age </span> </h3>
           <%end%>
           <% if @clip.link_broken == false %>
-                 <h3> <%= link_to "Report Link Not Working", {:controller => "home", :action => "report_link", :id => @clip.id} %> </h3>
+                 <h3> <Span style="border: 1px solid black"> <%= link_to "Report Link Not Working", {:controller => "home", :action => "report_link", :id => @clip.id} %> </span> </h3>
           <%end%>
-
+          <% if @clip.link_broken == true %>
+                <h3> <span style="font-weight:bold; font-size:20px; background-color:red; color:white; padding: 2px">Clip is reported to be broken. We will soon update the clip</span> </h3>
+          <%end %>
           <h3>
           <span style="font-weight:bold; font-size:25px; background-color:blue;">
           <%= if @clip.download_link.present?
@@ -25,6 +27,7 @@
           <h3> Actress: <%= link_to @actress.first_name.concat(" ").concat(@actress.last_name), {:controller => "home", :action => "actress", :id => @actress.id} %> </h3>
           <h3> Movie:   <%= @clip.movie %> </h3>
           <h3> Info:    <%= @clip.clip_description %> </h3>
+          <h3> Added:   <%= time_ago_in_words(@clip.created_at).concat(" ").concat("ago") %> </h3>
           <h3> Tags: &nbsp
                      <%if @clip.clip_tag1.present? %>
                         <span style="background-color:#6495ED"> <%= link_to @clip.clip_tag1, {:controller => "home", :action => "search_cl", :tag => @clip.clip_tag1 } %> </span>
@@ -69,7 +72,7 @@
                               <%= link_to @temp_actress.last_name, {:controller => "home", :action => "actress", :id => @temp_actress.id} %> </p>
               <p> Movie:      <%= suggested_clip.movie %> </p>
               <p> Info:       <%= suggested_clip.clip_description %> </p>
-              <p> Date Added: <%= suggested_clip.created_at %> </p>
+              <p> Added:      <%= time_ago_in_words(suggested_clip.created_at).concat(" ").concat("ago") %> </p>
               <p> Tags: &nbsp
                          <%if @clip.clip_tag1.present? %>
                             <span style="background-color:#6495ED"> <%= link_to @clip.clip_tag1, {:controller => "home", :action => "search_cl", :tag => @clip.clip_tag1 } %> </span>

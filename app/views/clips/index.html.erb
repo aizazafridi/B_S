@@ -22,7 +22,7 @@
               @video_info = VideoInfo.new(clip.clip_src)
               @image = @video_info.thumbnail_large
            end
-           image_tag(@image, :class => "img-responsive rounded") %>
+           image_tag(@image, :size => "200x200") %>
     </td>
     <td class="col-md-2"> <%= clip.movie %> </td>
     <!--<td class="col-md-2">video_tag(clip.clip_src, controls: true, autobuffer: true) %> </td> -->

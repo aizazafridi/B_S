@@ -13,7 +13,7 @@
     <% if @clip_exists == false %>
 
       <div class="headings">
-        <h1> More Clips of <%= @actress.first_name.concat(" ").concat(@actress.last_name) %> </h1>
+        <h1> Clips of <%= @actress.first_name.concat(" ").concat(@actress.last_name) %> </h1>
       </div>
       <div class="headings">
         <h2> No clips found. We are adding new clips daily. Please check back later </h2>
@@ -22,7 +22,7 @@
     <% else %>
 
     <div class="headings">
-        <h1> More Clips of <%= @actress.first_name.concat(" ").concat(@actress.last_name) %> </h1>
+        <h1> Clips of <%= @actress.first_name.concat(" ").concat(@actress.last_name) %> </h1>
     </div>
 
     <div class="suggested_clips">
@@ -40,7 +40,7 @@
                               <%= link_to @actress.last_name, {:controller => "home", :action => "actress", :id => @actress.id} %> </p>
               <p> Movie:      <%= suggested_clip.movie %> </p>
               <p> Info:       <%= suggested_clip.clip_description %> </p>
-              <p> Date Added: <%= suggested_clip.created_at %> </p>
+              <p> Added:      <%= time_ago_in_words(suggested_clip.created_at).concat(" ").concat("ago") %> </p>
               <p> Tags: &nbsp
                          <%if suggested_clip.clip_tag1.present? %>
                             <span style="background-color:#6495ED"> <%= link_to suggested_clip.clip_tag1, {:controller => "home", :action => "search_cl", :tag => suggested_clip.clip_tag1 } %> </span>
@@ -68,5 +68,7 @@
     </div>
 
     <%end %>
+
+      <%= will_paginate @clips, renderer: BootstrapPagination::Rails %>
 
 </html>

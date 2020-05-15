@@ -1,7 +1,14 @@
 <html>
 
-  <h1> Thank you for reporting broken link. We will update the link as soon as
-       we can. Please check back later. Thank you for your patience
-  </h1> 
+<div class="show_clip_container">
+    <div class="display_clip">
+      <%= image_tag("/assets/Actresses/Shriya.jpg") %>
+        <h3> Thank you for reporting broken link. We will update the link as soon as
+            we can.<br /> Please check back later. Thank you for your patience
+        </h3>
+        <br />
+        <h3> <Span style="border: 1px solid black"> <%= link_to "Go Back", {:controller => "home", :action => "clip", :id => @clip.id} %> </span> </h3>
+    </div>
+</div>
 
 </html>

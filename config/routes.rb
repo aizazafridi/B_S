@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/home/clip/:id', to: 'home#clip'
   get '/home/actress/:id', to: 'home#actress'
   get '/home/report_link/:id', to: 'home#report_link'
+  get '/clips/broken_links_index', to: 'clips#broken_links_index'
 
   resources :feature_clips
   resources :feature_actresses

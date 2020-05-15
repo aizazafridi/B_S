@@ -1,0 +1,20 @@
+<div class="container-fluid">
+<table class="table-striped table-bordered table-hover">
+  <tr class='row'>
+    <th class="col-md-3"> Actress</th>
+    <th class="col-md-3"> Movie </th>
+    <th class="col-md-3"> Url </th>
+    <th class="col-md-3"> </th>
+  </tr>
+  <% @clips.each do |clip|
+     @actress = Actress.find_by_id(clip.actress_id) %>
+  <tr class="row">
+    <td class="col-md-3"> <%= @actress.first_name %> </td>
+    <td class="col-md-3"> <%= clip.movie %> </td>
+    <td class="col-md-3"> <%= clip.clip_src %> </td>
+    <td class="col-md-3"> <%= link_to("Edit", edit_clip_path(clip)) %> </td>
+  </tr>
+  <%end%>
+</table>
+
+<%= will_paginate @clips %>

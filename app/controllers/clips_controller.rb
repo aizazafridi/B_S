@@ -63,6 +63,10 @@ class ClipsController < ApplicationController
     end
   end
 
+  def broken_links_index
+    @clips = Clip.paginate(:page => params[:page], :per_page => 20).where(:link_broken => true)
+  end
+
 private
 
   def clip_params

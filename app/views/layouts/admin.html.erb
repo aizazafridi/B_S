@@ -7,7 +7,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <link href='http://fonts.googleapis.com/css?family=Montserrat:light' rel='stylesheet' type='text/css'>
-    
+
     <title> Bollywood Skin Admin: <%= @page_title || "Admin Area" %> </title>
 
   </head>
@@ -29,6 +29,7 @@
           <li> <%= link_to("Add Clip", new_clip_path) %> </li>
           <li> <%= link_to("Feature Actresses", feature_actresses_path) %></li>
           <li> <%= link_to("Feature Clips", feature_clips_path) %></li>
+          <li> <%= link_to("Broken Links", {:controller => "clips", :action => "broken_links_index"}) %> </li>
         </ul>
       </div>
     </nav>
