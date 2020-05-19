@@ -22,8 +22,7 @@
       <%= if suggested_clip.image_url.present?
               @image = suggested_clip.image_url
          else
-              @video_info = VideoInfo.new(suggested_clip.clip_src)
-              @image = @video_info.thumbnail_large
+              @image = get_video_thumbnail(suggested_clip.clip_src)
          end
         link_to image_tag(@image), {:controller => "clips", :action => "show", :id   => suggested_clip.id }%>
         <div class="suggested_clip_info">

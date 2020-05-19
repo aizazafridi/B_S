@@ -19,8 +19,9 @@
       <%= if clip.image_url.present?
               @image = clip.image_url
            else
-              @video_info = VideoInfo.new(clip.clip_src)
-              @image = @video_info.thumbnail_large
+              #@video_info = VideoInfo.new(clip.clip_src)
+              #@image = @video_info.thumbnail_large
+              @image = get_video_thumbnail(clip.clip_src)
            end
            image_tag(@image, :size => "200x200") %>
     </td>
