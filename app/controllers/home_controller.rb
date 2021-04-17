@@ -48,8 +48,8 @@ class HomeController < ApplicationController
         @clips = Clip.paginate(:page => params[:page], :per_page => 10).where(:actress_id => @actress.id).order('created_at desc')
         #@clips = Clip.where(:actress_id => @actress.id)
       else
-        @clips = Clip.where(:actress_id => @actress.id)
         @clip_exists = false
+        @clips = Clip.paginate(:page => params[:page], :per_page => 10).where(:actress_id => @actress.id).order('created_at desc')       
       end
   end
 

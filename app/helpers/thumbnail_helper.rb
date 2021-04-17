@@ -30,7 +30,7 @@ module ThumbnailHelper
   # Finds vimeo video thumbnail
   def get_vimeo_thumbnail url
     vimeo_id = find_vimeo_id url
-    result = URI.open("http://vimeo.com/api/v2/video/#{vimeo_id}.json").read
+      result = URI.open("http://vimeo.com/api/v2/video/#{vimeo_id}.json").read
     begin
       JSON.parse(result).first['thumbnail_large']
     rescue StandardError
