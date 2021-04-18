@@ -1,5 +1,9 @@
 {
   "name": "B_S",
   "private": true,
-  "dependencies": {}
+  "dependencies": {},
+  "devDependencies": {
+    "webpack": "^5.33.2",
+    "webpack-dev-server": "^3.11.2"
+  }
 }
