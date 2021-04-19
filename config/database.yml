@@ -55,7 +55,6 @@ test:
 
   #For Production
   production:
-  <<: *default
   database: b_s_development
   username: aizaz
   password: <%= ENV['qewleep'] %>
