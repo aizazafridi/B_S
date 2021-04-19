@@ -52,3 +52,10 @@ test:
   username: aizaz
   password: qewleep
   timeout: 5000
+
+  #For Production
+  production:
+  <<: *default
+  database: b_s_development
+  username: aizaz
+  password: <%= ENV['qewleep'] %>
