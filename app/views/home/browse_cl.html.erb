@@ -8,7 +8,7 @@
     <% @clips.each do |clip|
             @temp_actress = Actress.find_by_id(clip.actress_id)
             if clip.image_url.present?
-             @image = clip.image_url
+             @image = clip.image_url.url
            else
              @image = get_video_thumbnail(clip.clip_src)
            end %>

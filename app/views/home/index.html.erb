@@ -3,13 +3,13 @@
     <div class="feature_container">
         <div class="feature_item">
             <h1> Featured Actress </h1>
-            <%=link_to image_tag(@actress.image_path) , {:controller => "home", :action => "actress", :id => @actress.id}%>
+            <%=link_to image_tag(@actress.image_path.url) , {:controller => "home", :action => "actress", :id => @actress.id}%>
             <h2> <%= @actress.first_name %> &nbsp <%= @actress.last_name %> </h2>
             <h3> <%= @feature_actress.description %> </h3>
         </div>
         <div class="feature_item">
             <h1> Featured Clip </h1>
-            <%= link_to image_tag(@clip.image_url), {:controller => "home", :action => "clip", :id   => @clip.id }%>
+            <%= link_to image_tag(@clip.image_url.url), {:controller => "home", :action => "clip", :id   => @clip.id }%>
             <h3> Movie: <%= @clip.movie %> </h3>
             <h3> <%= @clip.clip_description %> </h3>
 
@@ -24,7 +24,7 @@
     <% @latest_clips.each do |latest_clip|
             @temp_actress = Actress.find_by_id(latest_clip.actress_id)
             if latest_clip.image_url.present?
-             @image = latest_clip.image_url
+             @image = latest_clip.image_url.url
            else
              @image = get_video_thumbnail(latest_clip.clip_src)
            end %>

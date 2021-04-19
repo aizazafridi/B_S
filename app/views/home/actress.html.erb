@@ -3,7 +3,7 @@
 
     <div class="show_actress_container">
         <div class="show_actress">
-            <%= image_tag(@actress.image_path) %>
+            <%= image_tag(@actress.image_path.url) %>
             <h3> First Name: <%= @actress.first_name %> </h3>
             <h3> Last Name: <%= @actress.last_name %> </h3>
             <h3> Total Clips: <%= @clips.count %> </h3>
@@ -29,7 +29,7 @@
     <% @clips.each do |suggested_clip| %>
         <div class="suggested_clip">
             <%= if suggested_clip.image_url.present?
-              @image = suggested_clip.image_url
+              @image = suggested_clip.image_url.url
             else
               @image = get_video_thumbnail(suggested_clip.clip_src)
             end

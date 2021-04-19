@@ -12,126 +12,125 @@
 
 ActiveRecord::Schema.define(version: 2021_04_17_222637) do
 
-  create_table "active_admin_comments", charset: "latin1", force: :cascade do |t|
-    t.string "namespace"
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "active_admin_comments", force: :cascade do |t|
+    t.text "namespace"
     t.text "body"
-    t.string "resource_type"
-    t.bigint "resource_id"
-    t.string "author_type"
-    t.bigint "author_id"
+    t.text "resource_type"
+    t.decimal "resource_id"
+    t.text "author_type"
+    t.decimal "author_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
-    t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
-    t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
+    t.index ["author_type", "author_id"], name: "idx_17494_index_active_admin_comments_on_author_type_and_author"
+    t.index ["namespace"], name: "idx_17494_index_active_admin_comments_on_namespace"
+    t.index ["resource_type", "resource_id"], name: "idx_17494_index_active_admin_comments_on_resource_type_and_reso"
   end
 
-  create_table "active_storage_attachments", charset: "latin1", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "record_type", null: false
-    t.bigint "record_id", null: false
-    t.bigint "blob_id", null: false
+  create_table "active_storage_attachments", force: :cascade do |t|
+    t.text "name", null: false
+    t.text "record_type", null: false
+    t.decimal "record_id", null: false
+    t.decimal "blob_id", null: false
     t.datetime "created_at", null: false
-    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
-    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+    t.index ["blob_id"], name: "idx_17503_index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "idx_17503_index_active_storage_attachments_uniqueness", unique: true
   end
 
-  create_table "active_storage_blobs", charset: "latin1", force: :cascade do |t|
-    t.string "key", null: false
-    t.string "filename", null: false
-    t.string "content_type"
+  create_table "active_storage_blobs", force: :cascade do |t|
+    t.text "key", null: false
+    t.text "filename", null: false
+    t.text "content_type"
     t.text "metadata"
-    t.string "service_name", null: false
-    t.bigint "byte_size", null: false
-    t.string "checksum", null: false
+    t.text "service_name", null: false
+    t.decimal "byte_size", null: false
+    t.text "checksum", null: false
     t.datetime "created_at", null: false
-    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+    t.index ["key"], name: "idx_17512_index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "active_storage_variant_records", charset: "latin1", force: :cascade do |t|
-    t.bigint "blob_id", null: false
-    t.string "variation_digest", null: false
-    t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  create_table "active_storage_variant_records", force: :cascade do |t|
+    t.decimal "blob_id", null: false
+    t.text "variation_digest", null: false
+    t.index ["blob_id", "variation_digest"], name: "idx_17521_index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "actresses", charset: "latin1", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
+  create_table "actresses", force: :cascade do |t|
+    t.text "first_name"
+    t.text "last_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "image_path_file_name"
-    t.string "image_path_content_type"
-    t.integer "image_path_file_size"
+    t.text "image_path_file_name"
+    t.text "image_path_content_type"
+    t.bigint "image_path_file_size"
     t.datetime "image_path_updated_at"
-    t.string "description"
+    t.text "description"
   end
 
-  create_table "admin_users", charset: "latin1", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
+  create_table "admin_users", force: :cascade do |t|
+    t.text "email", default: "", null: false
+    t.text "encrypted_password", default: "", null: false
+    t.text "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_admin_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+    t.index ["email"], name: "idx_17539_index_admin_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "idx_17539_index_admin_users_on_reset_password_token", unique: true
   end
 
-  create_table "clips", charset: "latin1", force: :cascade do |t|
-    t.bigint "actress_id"
-    t.string "clip_name"
-    t.string "clip_description"
-    t.string "movie"
+  create_table "clips", force: :cascade do |t|
+    t.decimal "actress_id"
+    t.text "clip_name"
+    t.text "clip_description"
+    t.text "movie"
     t.datetime "release_date"
-    t.string "clip_tag1"
-    t.string "clip_tag2"
-    t.string "clip_tag3"
+    t.text "clip_tag1"
+    t.text "clip_tag2"
+    t.text "clip_tag3"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "image_url_file_name"
-    t.string "image_url_content_type"
-    t.integer "image_url_file_size"
+    t.text "image_url_file_name"
+    t.text "image_url_content_type"
+    t.bigint "image_url_file_size"
     t.datetime "image_url_updated_at"
-    t.string "clip_src"
+    t.text "clip_src"
     t.boolean "mature", default: false
     t.boolean "link_broken", default: false
-    t.string "clip_tag4"
-    t.string "clip_tag5"
-    t.string "download_link"
-    t.index ["actress_id"], name: "index_clips_on_actress_id"
+    t.text "clip_tag4"
+    t.text "clip_tag5"
+    t.text "download_link"
+    t.index ["actress_id"], name: "idx_17556_index_clips_on_actress_id"
   end
 
-  create_table "feature_actresses", charset: "utf8mb4", force: :cascade do |t|
-    t.text "description", size: :long
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "actress_id"
-    t.index ["actress_id"], name: "index_feature_actresses_on_actress_id"
-  end
-
-  create_table "feature_clips", charset: "utf8mb4", force: :cascade do |t|
+  create_table "feature_actresses", force: :cascade do |t|
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "clip_id"
-    t.index ["clip_id"], name: "index_feature_clips_on_clip_id"
+    t.decimal "actress_id"
+    t.index ["actress_id"], name: "idx_17567_index_feature_actresses_on_actress_id"
   end
 
-  create_table "users", charset: "utf8mb4", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
+  create_table "feature_clips", force: :cascade do |t|
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.decimal "clip_id"
+    t.index ["clip_id"], name: "idx_17576_index_feature_clips_on_clip_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.text "email", default: "", null: false
+    t.text "encrypted_password", default: "", null: false
+    t.text "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["email"], name: "idx_17591_index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "idx_17591_index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "feature_actresses", "actresses"
-  add_foreign_key "feature_clips", "clips"
 end

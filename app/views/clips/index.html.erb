@@ -17,7 +17,7 @@
     <td class="col-md-2"> <%= clip.clip_name %> </td>
     <td class="col-md-2">
       <%= if clip.image_url.present?
-              @image = clip.image_url
+              @image = clip.image_url.url
            else
               #@video_info = VideoInfo.new(clip.clip_src)
               #@image = @video_info.thumbnail_large

@@ -3,15 +3,15 @@ class CreateClips < ActiveRecord::Migration[5.1]
     create_table :clips do |t|
 
       t.belongs_to :actress, index: true
-      
-      t.string "clip_name"
-      t.string "clip_description"
-      t.string "clip_image_url"
-      t.string "movie"
+
+      t.text "clip_name"
+      t.text "clip_description"
+      t.text "clip_image_url"
+      t.text "movie"
       t.datetime "release_date"
-      t.string "clip_tag1"
-      t.string "clip_tag2"
-      t.string "clip_tag3"
+      t.text "clip_tag1"
+      t.text "clip_tag2"
+      t.text "clip_tag3"
 
       t.timestamps
     end

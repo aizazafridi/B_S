@@ -9,7 +9,7 @@ end
 #gem 'rails', '~> 5.1.2'
 gem 'rails', '~> 6.0'
 # Use mysql as the database for Active Record
-gem 'mysql2', '~> 0.3.18'
+#gem 'mysql2', '~> 0.3.18'
 #gem 'mysql2', '>= 0.3.18', '< 0.5'
 #gem 'mysql2', '0.3.6'
 # Use Puma as the app server
@@ -34,6 +34,12 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+# Use Postgres as the database for Active Record
+gem 'pg'
+
+#For Fixing image_tag issue
+ gem 'world-flags', github: 'kristianmandrup/world-flags', branch: 'master'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

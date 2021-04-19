@@ -3,7 +3,7 @@
     <div class="show_clip_container">
         <div class="display_clip">
           <%=if @clip.download_link.present?
-                image_tag(@clip.image_url, :size => "1000x600")
+                image_tag(@clip.image_url.url, :size => "1000x600")
              else
                 get_video_iframe(@clip.clip_src)
              end %>
@@ -60,7 +60,7 @@
     <% @suggested_clips.each do |suggested_clip|
        @temp_actress = Actress.find_by_id(suggested_clip.actress_id)
        if suggested_clip.image_url.present?
-        @image = suggested_clip.image_url
+        @image = suggested_clip.image_url.url
       else
         @image = get_video_thumbnail(suggested_clip.clip_src)
       end %>

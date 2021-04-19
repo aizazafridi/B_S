@@ -37,7 +37,7 @@ class HomeController < ApplicationController
   def clip
       @clip = Clip.find(params[:id])
       @actress = Actress.find(@clip.actress_id)
-      @suggested_clips = Clip.order("RAND()").limit(10)
+      @suggested_clips = Clip.order("RANDOM()").limit(10)
   end
 
   def actress
@@ -49,7 +49,7 @@ class HomeController < ApplicationController
         #@clips = Clip.where(:actress_id => @actress.id)
       else
         @clip_exists = false
-        @clips = Clip.paginate(:page => params[:page], :per_page => 10).where(:actress_id => @actress.id).order('created_at desc')       
+        @clips = Clip.paginate(:page => params[:page], :per_page => 10).where(:actress_id => @actress.id).order('created_at desc')
       end
   end
 

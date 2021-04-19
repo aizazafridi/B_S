@@ -13,7 +13,7 @@
     <div class="actresses_container">
     <% @actresses.each do |actress| %>
         <div class="actress">
-            <%= link_to image_tag(actress.image_path), {:controller => "home", :action => "actress", :id => actress.id } %>
+            <%= link_to image_tag(actress.image_path.url), {:controller => "home", :action => "actress", :id => actress.id } %>
             <h3> <%= actress.first_name %> <%= actress.last_name %> </h3>
         </div>
     <%end %>
