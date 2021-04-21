@@ -26,14 +26,14 @@
     </div>
 
     <div class="suggested_clips">
-    <% @clips.each do |suggested_clip| %>
-        <div class="suggested_clip">
-            <%= if suggested_clip.image_url.present?
-              @image = suggested_clip.image_url.url
-            else
-              @image = get_video_thumbnail(suggested_clip.clip_src)
-            end
-            link_to image_tag(@image), {:controller => "home", :action => "clip", :id   => suggested_clip.id }%>
+    <% @clips.each do |suggested_clip|
+        if suggested_clip.image_url.present?
+          @image = suggested_clip.image_url.url
+        else
+          @image = get_video_thumbnail(suggested_clip.clip_src)
+        end %>
+          <div class="suggested_clip">
+            <%=link_to image_tag(@image), {:controller => "home", :action => "clip", :id   => suggested_clip.id }%>
             <div class="suggested_clip_info">
               <p> Actress:    <%= link_to @actress.first_name, {:controller => "home", :action => "actress", :id => @actress.id} %> </p>
               <p> Movie:      <%= suggested_clip.movie %> </p>
