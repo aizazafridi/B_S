@@ -67,8 +67,7 @@
         <div class="suggested_clip">
             <%= link_to image_tag(@image), {:controller => "home", :action => "clip", :id   => suggested_clip.id }%>
             <div class="suggested_clip_info">
-              <p> Actress:    <%= link_to @temp_actress.first_name, {:controller => "home", :action => "actress", :id => @temp_actress.id} %> &nbsp
-                              <%= link_to @temp_actress.last_name, {:controller => "home", :action => "actress", :id => @temp_actress.id} %> </p>
+              <p> Actress:    <%= link_to @temp_actress.first_name, {:controller => "home", :action => "actress", :id => @temp_actress.id} %> </p>
               <p> Movie:      <%= suggested_clip.movie %> </p>
               <p> Info:       <%= suggested_clip.clip_description %> </p>
               <p> Added:      <%= time_ago_in_words(suggested_clip.created_at).concat(" ").concat("ago") %> </p>

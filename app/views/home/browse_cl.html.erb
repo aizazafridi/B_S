@@ -14,7 +14,7 @@
            end %>
             <div class="clips_page_clips">
                 <%= link_to image_tag(@image), {:controller => "home", :action => "clip", :id   => clip.id }%>
-                <h3> Actress: <%= ;link_to @temp_actress.first_name, {:controller => "home", :action => "actress", :id => @temp_actress.id} %> </h3>
+                <h3> Actress: <%= link_to @temp_actress.first_name, {:controller => "home", :action => "actress", :id => @temp_actress.id} %> </h3>
                 <h3> Movie: <%= clip.movie %> </h3>
                 <h3> Added: <%= time_ago_in_words(clip.created_at).concat(" ").concat("ago") %> </h3>
             </div>
