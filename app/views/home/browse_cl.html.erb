@@ -4,6 +4,17 @@
       <h1> Browse Clips </h1>
     </div>
 
+    <div class="search">
+    <%= form_with url: "/home/browse_cl", method: :get do %>
+      <div class="input-group">
+        <%= search_field_tag :search, params[:search], placeholder: "Enter Movie Name", class: "form-control" %>
+          <div class="input-group-btn">
+            <%= button_tag "", :class => 'btn btn-info glyphicon glyphicon-search',:name => nil%>
+          </div>
+        </div>
+   <% end %>
+   </div>
+
     <div class="clips_page_container">
     <% @clips.each do |clip|
             @temp_actress = Actress.find_by_id(clip.actress_id)

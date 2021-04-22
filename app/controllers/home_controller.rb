@@ -10,17 +10,21 @@ class HomeController < ApplicationController
   end
 
   def browse_ac
-     @search = params["search"]
-     if @search.present?
-       @first_name = @search["first_name"]
-       @actresses = Actress.paginate(:page => params[:page], :per_page => 20).order(:first_name).where("first_name LIKE ?", "%#{@first_name}%")
-     else
-     @actresses = Actress.paginate(:page => params[:page], :per_page => 15).order(:first_name)
-     end
+    if params[:search].blank?
+      @actresses = Actress.paginate(:page => params[:page], :per_page => 15).order(:first_name)
+    else
+      @parameter = params[:search].downcase
+      @actresses = Actress.paginate(:page => params[:page], :per_page => 15).order(:first_name).where("lower(first_name) LIKE :search", search: "%#{@parameter}%")
+    end
   end
 
   def browse_cl
-       @clips = Clip.paginate(:page => params[:page], :per_page => 20).order('created_at desc')
+    if params[:search].blank?
+      @clips = Clip.paginate(:page => params[:page], :per_page => 15).order('created_at desc')
+    else
+      @parameter = params[:search].downcase
+      @clips = Clip.paginate(:page => params[:page], :per_page => 20).order('created_at desc').where("lower(movie) LIKE :search", search: "%#{@parameter}%")
+    end
   end
 
   def search_cl
