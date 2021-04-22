@@ -48,7 +48,7 @@ class ActressesController < ApplicationController
     #Find an object using params
     @actress = Actress.find(params[:id])
     #Update the object
-    if @actress.update_attributes(actress_params)
+    if @actress.update(actress_params)
       #Redirect to index page
       redirect_to(actresses_path(@actress))
     else

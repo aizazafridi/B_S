@@ -41,7 +41,7 @@ class ClipsController < ApplicationController
     #find the clip
     @clip = Clip.find(params[:id])
     #update the clip
-    if @clip.update_attributes(clip_params)
+    if @clip.update(clip_params)
       redirect_to(clips_path)
     else
       render("edit")
