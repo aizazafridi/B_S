@@ -86,3 +86,7 @@ group :development do
 end
 
 gem 'devise', '>4.x'
+
+#For Storing Assets in AWS
+gem 'fog-aws'
+gem 'asset_sync'
