@@ -130,9 +130,16 @@ end
 
 # For Heroku to access assets from Amazon S3 using cloudfront
 AssetSync.configure do |config|
+  config.gzip_compression = true
+  config.manifest = true
+  config.existing_remote_files = 'keep'
   config.fog_provider = 'AWS'
   config.aws_access_key_id = ENV['AKIA6N5XUQ4WB7VB2DIE']
   config.aws_secret_access_key = ENV['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']
   config.fog_directory = ENV['bsimages']
   config.fog_region = ENV['us-east-2']
+  #Change host option in fog (only if you need to)
+  #config.fog_host = ENV.fetch('AWS_ENDPOINT') #'s3.amazonaws.com'
+  config.fog_path_style = true
+  config.run_on_precompile = false # https://github.com/AssetSync/asset_sync#rake-task
 end
