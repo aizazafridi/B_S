@@ -98,8 +98,8 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
    # Enable serving of images, stylesheets, and JavaScripts from an asset server
-   config.action_controller.asset_host = ENV['d28tnewht2o0yn.cloudfront.net']
-   config.action_mailer.asset_host = ENV['d28tnewht2o0yn.cloudfront.net']
+   config.action_controller.asset_host = ENV['AWS_CLOUD_FRONT_URL']
+   config.action_mailer.asset_host = ENV['AWS_CLOUD_FRONT_URL']
    config.serve_static_files = true
    config.assets.compile = true
    config.assets.digest = true
@@ -134,10 +134,10 @@ AssetSync.configure do |config|
   config.manifest = true
   config.existing_remote_files = 'keep'
   config.fog_provider = 'AWS'
-  config.aws_access_key_id = ENV['AKIA6N5XUQ4WB7VB2DIE']
-  config.aws_secret_access_key = ENV['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']
-  config.fog_directory = ENV['bsimages']
-  config.fog_region = ENV['us-east-2']
+  config.aws_access_key_id = ENV['AWS_ACCESS_KEY_ID']
+  config.aws_secret_access_key = ENV['AWS_SECRET_ACCESS_KEY']
+  config.fog_directory =  ENV['FOG_DIRECTORY']
+  config.fog_region = ENV['AWS_REGION']
   #Change host option in fog (only if you need to)
   #config.fog_host = ENV.fetch('AWS_ENDPOINT') #'s3.amazonaws.com'
   config.fog_path_style = true
