@@ -90,3 +90,5 @@ gem 'devise', '>4.x'
 #For Storing Assets in AWS
 gem 'fog-aws'
 gem 'asset_sync'
+
+gem "active_storage_validations", "~> 0.6.1"
