@@ -111,7 +111,7 @@ Rails.application.configure do
      storage: :s3,
      :url => ":s3_alias_url",
      :s3_host_alias => "d35zf82laruljq.cloudfront.net",
-     :path => ":rails_env/:class/:attachment/:first_name/:filename",
+     :path => ":rails_env/:class/:attachment/:id/:style:/:filename",
      :bucket => "bskinversion1assets",
      s3_credentials: {
        bucket: ENV['S3_BUCKET_NAME'],
