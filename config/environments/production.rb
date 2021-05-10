@@ -106,6 +106,21 @@ Rails.application.configure do
    config.assets.enabled = true
    config.assets.initialize_on_precompile = true
 
+   #For paperclip to use Amazon S3
+   config.paperclip_defaults = {
+     storage: :s3,
+     :url => ":s3_alias_url",
+     :s3_host_alias => "d35zf82laruljq.cloudfront.net",
+     :path => ":rails_env/:class/:attachment/:id/:style:/:filename",
+     :bucket => "bskinversion1assets",
+     s3_credentials: {
+       bucket: ENV['S3_BUCKET_NAME'],
+       access_key_id: ENV['AWS_ACCESS_KEY_ID'],
+       secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
+       s3_region: ENV['AWS_REGION'],
+     }
+   }
+
 
   # Inserts middleware to perform automatic connection switching.
   # The `database_selector` hash is used to pass options to the DatabaseSelector
