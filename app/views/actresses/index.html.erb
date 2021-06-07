@@ -3,10 +3,16 @@
 
 <div class="container-fluid">
 
-<%= simple_form_for :search, url: actresses_path, method: "GET", html: { class: 'form-inline' } do |f| %>
-  <%= f.input :first_name, input_html: {value: ""} %>
-  <%= f.submit "Search", class: "btn btn-primary" %>
-<% end %>
+<div class="search">
+  <%= form_with url: "/actresses", method: :get do %>
+    <div class="input-group">
+      <%= search_field_tag :search, params[:search], placeholder: "Enter Actress First Name", class: "form-control" %>
+        <div class="input-group-btn">
+          <%= button_tag "", :class => 'btn btn-info glyphicon glyphicon-search',:name => nil%>
+        </div>
+    </div>
+  <% end %>
+</div>
 
 <table class="table-striped table-bordered table-hover">
   <tr class='row'>
@@ -20,7 +26,7 @@
     <td class="col-md-1"> <%= actress.id %> </td>
     <td class="col-md-3"> <%= actress.first_name %> </td>
     <td class="col-md-3"> <%= actress.last_name %> </td>
-    <!--<td class="col-md-2"> <%= image_tag(actress.image_path.url, :class => "img-responsive") %></td> -->
+    <td class="col-md-2"> <%= image_tag(actress.image_path.url, :class => "img-responsive") %></td> 
     <td class="col-md-1"> <%= link_to("Show",actress_path(actress)) %> </td>
     <td class="col-md-1"> <%= link_to("Edit", edit_actress_path(actress)) %> </td>
     <td class="col-md-1"> <%= link_to("Delete", delete_actress_path(actress)) %> </td>

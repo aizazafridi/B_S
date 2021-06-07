@@ -4,15 +4,11 @@ class ActressesController < ApplicationController
   layout "admin"
 
   def index
-    ##@actresses = Actress.newest
-    @search = params["search"]
-    if @search.present?
-      @first_name = @search["first_name"]
-      ##@actresses = Actress.where(first_name: @first_name)
-      ##@actresses = Actress.paginate(:page => params[:page], :per_page => 20).order(:first_name).where(first_name: @first_name)
-      @actresses = Actress.paginate(:page => params[:page], :per_page => 20).order(:first_name).where("first_name LIKE ?", "%#{@first_name}%")
+    if params[:search].blank?
+      @actresses = Actress.paginate(:page => params[:page], :per_page => 30).order(:first_name)
     else
-      @actresses = Actress.paginate(:page => params[:page], :per_page => 40).order(:first_name)
+      @parameter = params[:search].downcase
+      @actresses = Actress.paginate(:page => params[:page], :per_page => 30).order(:first_name).where("lower(first_name) LIKE :search", search: "%#{@parameter}%")
     end
   end
 

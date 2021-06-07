@@ -6,8 +6,12 @@ class ClipsController < ApplicationController
   layout "admin"
 
   def index
-    ##@clips = Clip.newest
-    @clips = Clip.paginate(:page => params[:page], :per_page => 20).newest
+    if params[:search].blank?
+      @clips = Clip.paginate(:page => params[:page], :per_page => 15).order('created_at desc')
+    else
+      @parameter = params[:search].downcase
+      @clips = Clip.paginate(:page => params[:page], :per_page => 20).order('created_at desc').where("lower(movie) LIKE :search", search: "%#{@parameter}%")
+    end
   end
 
   def show
