@@ -392,3 +392,8 @@
   color: #0c6a93;
   text-align: center;
 }
+
+.fixed_size_image {
+  height: 200px;
+  width: 200px;
+}
