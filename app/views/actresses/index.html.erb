@@ -25,17 +25,17 @@
 
 <table class="table-striped table-bordered table-hover">
   <tr class='row'>
-    <th class="col-md-1">ID</th>
-    <th class="col-md-4"> First Name</th>
-    <th class="col-md-4"> Last Name</th>
-    <th class="col-md-2"> Image </th>
+    <th class="col-md-2">ID</th>
+    <th class="col-md-5"> First Name</th>
+    <th class="col-md-5"> Last Name</th>
+    <!--<th class="col-md-2"> Image </th> -->
   </tr>
   <% @actresses.each do |actress| %>
   <tr class="row">
-    <td class="col-md-1"> <%= actress.id %> </td>
+    <td class="col-md-3"> <%= actress.id %> </td>
     <td class="col-md-3"> <%= actress.first_name %> </td>
     <td class="col-md-3"> <%= actress.last_name %> </td>
-    <td class="col-md-2"> <%= image_tag(actress.image_path.url, :class => "fixed_size_image") %></td>
+    <!--<td class="col-md-2"> <%= image_tag(actress.image_path.url, :class => "fixed_size_image") %></td> -->
     <td class="col-md-1"> <%= link_to("Show",actress_path(actress)) %> </td>
     <td class="col-md-1"> <%= link_to("Edit", edit_actress_path(actress)) %> </td>
     <td class="col-md-1"> <%= link_to("Delete", delete_actress_path(actress)) %> </td>
